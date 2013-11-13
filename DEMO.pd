@@ -1,0 +1,57 @@
+#N canvas 0 0 952 1006 10;
+#X obj 141 119 s presetnumber;
+#X msg 141 96 0;
+#X obj -16 119 s savepreset;
+#X obj -16 44 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -95 46 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj -95 120 s loadpreset;
+#X obj -216 454 c_tobus SEND1;
+#X obj -216 196 sig~ 1;
+#X obj -173 184 catch~ L-SEND1;
+#X obj -160 204 catch~ R-SEND1;
+#X obj -95 -28 loadbang;
+#X obj -95 -4 t b b;
+#N canvas 960 0 952 1006 presets 1;
+#X obj 170 107 r global-presets;
+#X obj 170 143 route 0;
+#X obj 170 317 s fromglobal-presets;
+#X obj 278 108 r loadpreset;
+#X msg 170 243 Channel2-mute 1 \, Channel2-pan 50 \, Channel2-vol 55.9055
+\, SEND2-send 0.944444 \, Channel1-mute 1 \, Channel1-pan -22 \, Channel1-vol
+59.8425 \, SEND1-send 0.62963 \,;
+#X msg 353 163 set;
+#X obj 354 402 print;
+#X obj 360 108 r clearstate;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 1 0 6 0;
+#X connect 3 0 4 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 7 0 5 0;
+#X restore -215 -27 pd presets;
+#X obj -216 232 c_stchannel Channel1;
+#X obj 63 119 s clearstate;
+#X obj -16 79 t b b b;
+#X obj -232 640 u_snapshot~ 10;
+#X obj -131 640 u_snapshot~ 10;
+#X obj -174 231 c_stchannel Channel2;
+#X connect 1 0 0 0;
+#X connect 3 0 15 0;
+#X connect 4 0 5 0;
+#X connect 7 0 13 0;
+#X connect 7 0 13 1;
+#X connect 8 0 18 0;
+#X connect 9 0 18 1;
+#X connect 10 0 11 0;
+#X connect 11 0 5 0;
+#X connect 11 1 1 0;
+#X connect 13 0 6 0;
+#X connect 13 0 16 0;
+#X connect 13 1 6 1;
+#X connect 13 1 17 0;
+#X connect 15 0 2 0;
+#X connect 15 1 14 0;
+#X connect 15 2 1 0;
