@@ -10,7 +10,7 @@
 #X obj -30 87 f;
 #X msg -30 113 0 0 \, 1 \$1 0;
 #X obj 17 181 * 44.1;
-#X obj 15 6 / 44.1;
+#X obj 5 -7 / 44.1;
 #X obj 0 32 *;
 #N canvas 0 0 1366 702 envelope 0;
 #X obj 23 28 inlet~;
@@ -95,8 +95,8 @@
 #X obj -145 512 *~;
 #X obj -111 495 1;
 #X obj -111 28 r \$1-\$2-metro;
-#X obj 0 -41 r \$1-grainlength;
-#X obj 15 -18 r \$1-samples;
+#X obj 0 -51 r \$1-grainlength;
+#X obj 5 -31 r \$1-samples;
 #X obj 64 181 r \$1-samples;
 #X obj 3 413 r \$1-pan;
 #X obj -66 392 r \$1-envelope;
@@ -115,7 +115,7 @@
 #X obj 240 92 - 500;
 #X floatatom 240 314 5 0 0 0 - - -;
 #X floatatom 255 263 5 0 0 0 - - -;
-#X obj 280 456 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 280 456 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 241 551 spigot;
 #X obj 144 546 spigot;
@@ -125,7 +125,7 @@
 1;
 #X obj 353 408 >= 1;
 #X obj 376 596 spigot;
-#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 240 342 t f f;
 #X obj 232 426 == 0;
@@ -135,7 +135,7 @@
 #X obj 375 574 -;
 #X obj 373 501 t b f;
 #X obj 280 409 >= 0;
-#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 377 539 1;
 #X obj 255 241 inlet;
@@ -257,13 +257,13 @@
 #X obj 240 92 - 500;
 #X floatatom 240 314 5 0 0 0 - - -;
 #X floatatom 255 263 5 0 0 0 - - -;
-#X obj 280 456 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 280 456 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 241 551 spigot;
 #X obj 144 546 spigot;
 #X obj 144 503 * -1;
 #X floatatom 144 632 5 0 0 0 - - -;
-#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 353 408 >= 1;
 #X obj 376 596 spigot;
@@ -344,7 +344,7 @@
 #X floatatom 24 60 5 0 0 0 - - -;
 #X obj 243 126 f;
 #X floatatom -78 492 5 0 0 0 - - -;
-#N canvas 1474 301 450 300 direction 1;
+#N canvas 1474 301 450 300 direction 0;
 #X obj 47 29 inlet~;
 #X obj 49 241 outlet~;
 #X obj 120 133 -~;
@@ -358,7 +358,7 @@
 #X obj 176 2 sel fwd rev;
 #X msg 176 31 1;
 #X msg 207 32 0;
-#X obj 176 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 176 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 173 -20 prepend symbol;
 #X connect 0 0 7 0;
@@ -379,6 +379,7 @@
 #X connect 13 0 8 0;
 #X connect 14 0 10 0;
 #X restore -31 160 pd direction;
+#X obj 5 13 t b f;
 #X connect 0 0 4 0;
 #X connect 1 0 40 0;
 #X connect 2 0 1 1;
@@ -393,7 +394,7 @@
 #X connect 8 0 9 0;
 #X connect 9 0 7 0;
 #X connect 10 0 6 0;
-#X connect 11 0 12 1;
+#X connect 11 0 54 0;
 #X connect 12 0 5 0;
 #X connect 12 0 8 1;
 #X connect 12 0 50 0;
@@ -441,3 +442,5 @@
 #X connect 49 0 41 0;
 #X connect 51 0 47 0;
 #X connect 53 0 48 0;
+#X connect 54 0 12 0;
+#X connect 54 1 12 1;
