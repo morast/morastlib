@@ -88,17 +88,17 @@
 #X obj 2 224 f;
 #X obj -144 538 *~;
 #X obj -93 540 *~;
-#X obj 3 452 sig~;
-#X obj 3 474 samphold~;
-#X obj -10 523 -~;
-#X obj -10 497 sig~ 1;
+#X obj 43 452 sig~;
+#X obj 43 474 samphold~;
+#X obj 30 523 -~;
+#X obj 30 497 sig~ 1;
 #X obj -145 512 *~;
 #X obj -111 495 1;
 #X obj -111 28 r \$1-\$2-metro;
 #X obj 0 -51 r \$1-grainlength;
 #X obj 5 -31 r \$1-samples;
 #X obj 64 181 r \$1-samples;
-#X obj 3 413 r \$1-pan;
+#X obj 43 360 r \$1-pan;
 #X obj -66 392 r \$1-envelope;
 #X obj -127 252 r \$1-samples;
 #X obj -145 566 throw~ \$1-out_L;
@@ -180,7 +180,7 @@
 #X connect 28 0 8 0;
 #X connect 29 0 2 0;
 #X connect 30 0 4 0;
-#X restore 3 432 pd randomize;
+#X restore 43 432 pd randomize;
 #N canvas 0 0 675 694 randomizesig 0;
 #X obj 250 82 random 1000;
 #X obj 250 122 * 0.001;
@@ -327,8 +327,8 @@
 #X connect 32 0 5 0;
 #X connect 32 0 33 0;
 #X restore -96 469 pd randomize;
-#X obj 72 405 r \$1-panrnd;
-#X obj 145 405 r \$1-amprnd;
+#X obj 112 405 r \$1-panrnd;
+#X obj 185 405 r \$1-amprnd;
 #X obj 114 129 r \$1-posrnd;
 #X obj -96 447 r \$1-amp;
 #X obj -144 359 tabread4~ \$1-buffer;
@@ -380,6 +380,8 @@
 #X connect 14 0 10 0;
 #X restore -31 160 pd direction;
 #X obj 5 13 t b f;
+#X obj 43 384 + 1;
+#X obj 43 407 * 0.5;
 #X connect 0 0 4 0;
 #X connect 1 0 40 0;
 #X connect 2 0 1 1;
@@ -417,7 +419,7 @@
 #X connect 24 0 12 0;
 #X connect 25 0 11 0;
 #X connect 26 0 6 1;
-#X connect 27 0 33 0;
+#X connect 27 0 55 0;
 #X connect 28 0 13 1;
 #X connect 29 0 0 1;
 #X connect 32 0 34 0;
@@ -444,3 +446,5 @@
 #X connect 53 0 48 0;
 #X connect 54 0 12 0;
 #X connect 54 1 12 1;
+#X connect 55 0 56 0;
+#X connect 56 0 33 0;

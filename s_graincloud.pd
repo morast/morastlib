@@ -71,7 +71,7 @@
 #X obj -111 -33 counter;
 #X floatatom -121 -6 5 0 0 0 - - -;
 #X obj -358 -94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+1 1;
 #X obj -220 1 s \$0-metro;
 #X obj -358 -121 r \$0-metroON;
 #X connect 0 0 1 0;
@@ -105,7 +105,7 @@
 #X floatatom -405 59 5 0 0 0 - - -;
 #X floatatom -330 60 5 0 0 0 - - -;
 #X floatatom -257 61 5 0 0 0 - - -;
-#N canvas 755 70 188 265 voices 0;
+#N canvas 755 70 188 229 voices 1;
 #X obj -301 -48 s_grainvoice \$0 voice1;
 #X obj -301 412 s_grainvoice \$0 voice24;
 #X obj -301 372 s_grainvoice \$0 voice22;
@@ -166,9 +166,9 @@
 #X obj 228 57 loadbang;
 #X obj 228 81 \$0;
 #X msg 228 108 \; \$1-grainvoices 8 \; \$1-envelope hanning \; \$1-grainlength
-0.1 \; \$1-metrospeed 100 \; \$1-metro 0 \; \$1-pan 0.5 \; \$1-amp
-1 \; \$1-pitch 0 \; \$1-panrnd 0 \; \$1-posrnd 0 \; \$1-amprnd 0 \;
-\$1-direction fwd \;;
+0.1 \; \$1-metrospeed 100 \; \$1-metro 0 \; \$1-pan 0 \; \$1-amp 1
+\; \$1-pitch 0 \; \$1-midipitch 60 \; \$1-panrnd 0 \; \$1-posrnd 0
+\; \$1-amprnd 0 \; \$1-direction fwd \;;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X restore -406 -90 pd init;

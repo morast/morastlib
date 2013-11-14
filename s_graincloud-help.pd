@@ -1,78 +1,145 @@
-#N canvas 0 1 1338 554 10;
+#N canvas 0 0 1366 702 10;
 #X obj 113 319 s_graincloud;
 #X obj 182 251 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 182 282 metroON \$1;
 #X msg 281 283 metrospeed \$1;
-#X floatatom 281 257 5 0 0 0 - - -;
 #X obj 113 437 dac~;
 #X obj 159 177 bng 15 250 50 0 empty empty Load_a_SoundFile_First 17
 7 0 10 -262144 -1 -1;
-#X obj 135 252 sig~;
-#X floatatom 135 224 5 0 0 0 - - -;
-#X floatatom 376 257 5 0 0 0 - - -;
-#X msg 376 281 midipitch \$1;
+#X obj 135 111 sig~;
+#X msg 378 236 midipitch \$1;
 #X obj 113 404 *~;
 #X obj 181 401 *~;
-#X floatatom 228 329 5 0 0 0 - - -;
-#X msg 558 282 amp \$1;
-#X floatatom 558 257 5 0 0 0 - - -;
-#X msg 608 283 pan \$1;
-#X floatatom 608 257 5 0 0 0 - - -;
-#X floatatom 1103 257 5 0 0 0 - - -;
-#X msg 1103 283 posrnd \$1;
-#X msg 655 237 hanning;
-#X msg 710 237 decay;
-#X msg 752 237 attack;
-#X obj 655 282 prepend envelope;
-#X obj 762 282 prepend direction;
-#X msg 803 238 fwd;
-#X msg 833 238 rev;
-#X msg 880 284 grainvoices \$1;
-#X floatatom 880 238 5 0 0 0 - - -;
-#X msg 981 283 grainlength \$1;
-#X floatatom 981 236 5 0 0 0 - - -;
-#X msg 459 281 pitch \$1;
-#X floatatom 459 258 5 0 0 0 - - -;
-#X msg 1169 284 panrnd \$1;
-#X floatatom 1169 243 5 0 0 0 - - -;
-#X floatatom 1234 241 5 0 0 0 - - -;
-#X msg 1234 284 amprnd \$1;
-#X connect 0 0 11 0;
-#X connect 0 1 12 0;
+#X floatatom 196 371 5 0 0 0 - - -;
+#X msg 468 236 amp \$1;
+#X msg 468 283 pan \$1;
+#X msg 1027 208 posrnd \$1;
+#X msg 515 237 hanning;
+#X msg 570 237 decay;
+#X msg 612 237 attack;
+#X obj 515 282 prepend envelope;
+#X obj 622 282 prepend direction;
+#X msg 663 238 fwd;
+#X msg 693 238 rev;
+#X msg 740 284 grainvoices \$1;
+#X msg 841 283 grainlength \$1;
+#X msg 379 281 pitch \$1;
+#X msg 1029 254 panrnd \$1;
+#X msg 1029 298 amprnd \$1;
+#X obj 841 262 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 1027 187 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 1029 274 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 1029 231 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 740 262 nbx 3 14 1 32 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 32 256;
+#X obj 468 256 nbx 3 14 -1 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 468 210 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 378 209 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 281 256 nbx 3 14 1 2000 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 182 256;
+#X obj 182 210 loadbang;
+#X msg 182 231 1;
+#X obj 135 86 nbx 4 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.31 256;
+#X text -268 9 s_graincloud - granularsynthesizer with a maximum of
+32 grainvoices;
+#N canvas 0 0 1366 702 REFERENCE 0;
+#X text 49 55 Summary: granularsynthesizer with a maximum of 32 grainvoices
+;
+#X text 50 87 Argument 0: name for state saving (required);
+#X text 50 108 Inlet 0: Trigger one grain;
+#X text 50 126 Inlet 1: Signal for Sampleposition;
+#X text 50 146 Inlet 2: Bang to read Soundfile from Disk;
+#X text 50 168 Inlet 3: messages. metroON<bool>: start intern-metro-clock
+for grain playback. metrospeed<float>: set speed of internal metro
+in ms. midipitch<f>: set pitch via midinotes \, 60 = normal pitch.
+pitch<float>: pitch sample. amp<f>: set volume. pan<float:-1 \, 1>:
+set positon in stereo panorama. envelope<message>: set envelope type:
+hanning \, decay \, attack. direction<message>: set playback direction
+for grains \, fwd \, rev. grainvoices<int:1 \, 32>: set number of grainvoices.
+grainlength<float:0 \, 1>:Set length of grains. posrnd<float:0 \, 1>:
+randomize grain position. panrnd<float:0 \, 1>: randomize stereo panorama
+amprnd<float:0 \, 1>: randomize volume;
+#X text 49 307 Outlet 0: L-Output;
+#X text 48 327 Outlet 1: R-Output;
+#X text 48 32 Name: s_graincloud;
+#X text 48 363 Description: Graincloud makes a overlapping cloud of
+grains with a maximum of 32 grainvoices. Well suited for spacious pads
+\, clusters + textures of soundscapes and also very smooth timestretching
+;
+#X coords 0 -1 1 1 370 400 1 40 20;
+#X restore -269 53 pd REFERENCE;
+#X obj 379 262 nbx 3 14 -100 100 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0 256;
+#X obj 188 86 phasor~ 0.01;
+#X obj 286 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 770 93 450 300 switch 0;
+#X obj 54 46 inlet~;
+#X obj 102 45 inlet~;
+#X obj 145 45 inlet;
+#X obj 130 100 *~;
+#X obj 55 101 *~;
+#X obj 145 72 ==;
+#X obj 55 136 outlet~;
+#X connect 0 0 4 0;
+#X connect 1 0 3 0;
+#X connect 2 0 4 1;
+#X connect 2 0 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 1;
+#X restore 136 138 pd switch;
+#X text 287 67 Set Sample Position by hand or move throught the sample
+automatically(timestretching);
+#X connect 0 0 8 0;
+#X connect 0 1 9 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 3;
 #X connect 3 0 0 3;
-#X connect 4 0 3 0;
-#X connect 6 0 0 2;
-#X connect 7 0 0 1;
-#X connect 8 0 7 0;
-#X connect 9 0 10 0;
-#X connect 10 0 0 3;
-#X connect 11 0 5 0;
-#X connect 12 0 5 1;
-#X connect 13 0 11 1;
-#X connect 13 0 12 1;
-#X connect 14 0 0 3;
-#X connect 15 0 14 0;
-#X connect 16 0 0 3;
-#X connect 17 0 16 0;
-#X connect 18 0 19 0;
-#X connect 19 0 0 3;
-#X connect 20 0 23 0;
-#X connect 21 0 23 0;
-#X connect 22 0 23 0;
+#X connect 5 0 0 2;
+#X connect 6 0 43 0;
+#X connect 7 0 0 3;
+#X connect 8 0 4 0;
+#X connect 9 0 4 1;
+#X connect 10 0 8 1;
+#X connect 10 0 9 1;
+#X connect 11 0 0 3;
+#X connect 12 0 0 3;
+#X connect 13 0 0 3;
+#X connect 14 0 17 0;
+#X connect 15 0 17 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 3;
+#X connect 18 0 0 3;
+#X connect 19 0 18 0;
+#X connect 20 0 18 0;
+#X connect 21 0 0 3;
+#X connect 22 0 0 3;
 #X connect 23 0 0 3;
 #X connect 24 0 0 3;
-#X connect 25 0 24 0;
-#X connect 26 0 24 0;
-#X connect 27 0 0 3;
-#X connect 28 0 27 0;
-#X connect 29 0 0 3;
-#X connect 30 0 29 0;
-#X connect 31 0 0 3;
-#X connect 32 0 31 0;
-#X connect 33 0 0 3;
-#X connect 34 0 33 0;
+#X connect 25 0 0 3;
+#X connect 26 0 22 0;
+#X connect 27 0 13 0;
+#X connect 28 0 25 0;
+#X connect 29 0 24 0;
+#X connect 30 0 21 0;
+#X connect 31 0 12 0;
+#X connect 32 0 11 0;
+#X connect 33 0 7 0;
+#X connect 34 0 3 0;
 #X connect 35 0 36 0;
-#X connect 36 0 0 3;
+#X connect 36 0 1 0;
+#X connect 37 0 6 0;
+#X connect 40 0 23 0;
+#X connect 41 0 43 1;
+#X connect 42 0 43 2;
+#X connect 43 0 0 1;
