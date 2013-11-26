@@ -1,0 +1,6 @@
+#N canvas 0 0 450 300 10;
+#X obj 130 84 phasor~ \$1;
+#X obj 131 125 throw~ master;
+#X obj 131 104 *~ 0.1;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;

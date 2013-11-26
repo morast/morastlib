@@ -1,0 +1,18 @@
+#N canvas 0 0 450 300 10;
+#X obj 6 29 hsl 128 15 0 1 0 0 \$1-vol\$2 empty Vol -2 -8 0 10 -262144
+-1 -1 12700 1;
+#X obj 6 58 hsl 128 15 0 4 0 0 \$1-speed\$2 \$1-speed\$2 Speed -2 -8
+0 10 -262144 -1 -1 3175 1;
+#X obj 154 23 tgl 15 0 \$1-play\$2 \$1-play\$2 Play 17 7 0 10 -204786
+-1 -1 1 1;
+#X obj 154 41 tgl 15 0 \$1-rec\$2 \$1-rec\$2 Rec 17 7 0 10 -261234
+-261234 -1 0 1;
+#X obj 154 60 tgl 15 0 \$1-overdub\$2 \$1-overdub\$2 OVD 17 7 0 10
+-203904 -1 -1 0 1;
+#X msg 252 49 1;
+#X obj 252 22 r \$1-initgui\$2;
+#X connect 5 0 2 0;
+#X connect 5 0 1 0;
+#X connect 5 0 0 0;
+#X connect 6 0 5 0;
+#X coords 0 -1 1 1 200 80 1 0 0;
