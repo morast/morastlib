@@ -8,11 +8,18 @@
 #X obj 154 60 tgl 15 0 \$1-overdub\$2 \$1-overdub\$2 OVD 17 7 0 10
 -203904 -1 -1 0 1;
 #X msg 252 49 1;
-#X obj 252 22 r \$1-initgui\$2;
+#X obj 225 -31 r \$1-initgui\$2;
 #X obj 154 41 tgl 15 0 \$1-rec\$2 \$1-rec\$2 Rec 17 7 0 10 -261234
 -1 -1 0 1;
+#X obj 225 17 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 225 -5 t b b;
 #X connect 4 0 2 0;
 #X connect 4 0 1 0;
 #X connect 4 0 0 0;
-#X connect 5 0 4 0;
+#X connect 5 0 8 0;
+#X connect 7 0 0 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 0;
+#X connect 8 1 4 0;
 #X coords 0 -1 1 1 200 80 1 0 0;

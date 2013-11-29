@@ -1,0 +1,7 @@
+#N canvas 0 0 630 300 10;
+#X obj 118 95 u_highest;
+#X text 205 95 Passes a value only if it is higher than the highest
+value of all values received in the left inlet since its reset.;
+#X text 205 128 Input 1: Values;
+#X text 205 148 Input 2: Bang to reset;
+#X text 205 168 Output: Value;
