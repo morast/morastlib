@@ -1,14 +1,13 @@
-#N canvas 0 0 450 300 10;
-#X obj 127 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 0 0 552 328 10;
+#X obj 127 133 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 14 41 table \$0-margn1;
 #X obj 14 60 table \$0-margn2;
 #X obj 14 80 table \$0-margn3;
 #X text 127 40 args: 1st \, Name of table 2nd \, number of tables;
-#X text 126 78 comment;
-#X text 115 68 inlets: 1st \, bang to open file dialog 2nd \, set number
+#X text 126 55 inlets: 1st \, bang to open file dialog 2nd \, set number
 of tables;
-#X floatatom 298 106 5 0 0 0 - - -;
-#X obj 127 145 u_multifile-loader \$0-margn 3;
-#X connect 0 0 8 0;
-#X connect 7 0 8 1;
+#X floatatom 298 136 5 0 0 0 - - -;
+#X obj 127 175 u_multifile-loader \$0-margn 3;
+#X connect 0 0 7 0;
+#X connect 6 0 7 1;
