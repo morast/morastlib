@@ -1,0 +1,17 @@
+#N canvas 0 0 699 507 10;
+#X obj 303 230 s_timestretch;
+#X obj 303 282 dac~;
+#X floatatom 353 135 5 0 0 0 - - -;
+#X floatatom 510 136 5 0 0 0 Window_Length_in_ms - -;
+#X msg 259 114 load;
+#X text -7 30 Plays to overlapping chunks of an audio file to create
+smooth timestretching effects;
+#X msg 514 191 \$1 10;
+#X obj 501 225 line;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 1;
+#X connect 3 0 6 0;
+#X connect 4 0 0 0;
+#X connect 6 0 7 0;
+#X connect 7 0 0 2;
