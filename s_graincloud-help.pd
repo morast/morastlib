@@ -1,4 +1,4 @@
-#N canvas 0 0 1366 702 10;
+#N canvas 217 161 1605 702 10;
 #X obj 113 319 s_graincloud;
 #X obj 182 251 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
@@ -7,14 +7,14 @@
 #X obj 113 437 dac~;
 #X obj 159 177 bng 15 250 50 0 empty empty Load_a_SoundFile_First 17
 7 0 10 -262144 -1 -1;
-#X obj 135 111 sig~;
+#X obj 126 86 sig~;
 #X msg 378 236 midipitch \$1;
 #X obj 113 404 *~;
 #X obj 181 401 *~;
 #X floatatom 196 371 5 0 0 0 - - -;
 #X msg 468 236 amp \$1;
 #X msg 468 283 pan \$1;
-#X msg 1027 208 posrnd \$1;
+#X msg 947 208 posrnd \$1;
 #X msg 515 237 hanning;
 #X msg 570 237 decay;
 #X msg 612 237 attack;
@@ -25,40 +25,43 @@
 #X msg 740 284 grainvoices \$1;
 #X msg 841 283 grainlength \$1;
 #X msg 379 281 pitch \$1;
-#X msg 1029 254 panrnd \$1;
-#X msg 1029 298 amprnd \$1;
+#X msg 949 254 panrnd \$1;
+#X msg 949 298 amprnd \$1;
 #X obj 841 262 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.03 256;
-#X obj 1027 187 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.02 256;
-#X obj 1029 274 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.18 256;
+#X obj 947 187 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.09 256;
+#X obj 949 274 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 0 256;
-#X obj 1029 231 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+#X obj 949 231 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.67 256;
 #X obj 740 262 nbx 3 14 1 32 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 32 256;
 #X obj 468 256 nbx 3 14 -1 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.5 256;
+-1 -1 0.03 256;
 #X obj 468 210 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.58 256;
+-1 -1 1 256;
 #X obj 378 209 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 42 256;
 #X obj 281 256 nbx 3 14 1 2000 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 83 256;
+-1 -1 71 256;
 #X obj 182 210 loadbang;
 #X msg 182 231 1;
-#X obj 135 86 nbx 4 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.06 256;
+#X obj 126 61 nbx 4 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
+-1 -1 0.08 256;
 #X text -268 9 s_graincloud - granularsynthesizer with a maximum of
 32 grainvoices;
-#N canvas 0 0 1366 702 REFERENCE 0;
+#N canvas 0 0 1366 702 REFERENCE 1;
 #X text 49 55 Summary: granularsynthesizer with a maximum of 32 grainvoices
 ;
 #X text 50 87 Argument 0: name for state saving (required);
-#X text 50 108 Inlet 0: Trigger one grain;
 #X text 50 126 Inlet 1: Signal for Sampleposition;
 #X text 50 146 Inlet 2: Bang to read Soundfile from Disk;
-#X text 50 168 Inlet 3: messages. metroON<bool>: start intern-metro-clock
+#X text 49 337 Outlet 0: L-Output;
+#X text 48 357 Outlet 1: R-Output;
+#X text 48 32 Name: s_graincloud;
+#X text 50 110 Inlet 0: Trigger one grain<bang>;
+#X text 51 169 Inlet 3: messages. metroON<bool>: start intern-metro-clock
 for grain playback. metrospeed<float>: set speed of internal metro
 in ms. midipitch<f>: set pitch via midinotes \, 60 = normal pitch.
 pitch<float>: pitch sample. amp<f>: set volume. pan<float:-1 \, 1>:
@@ -67,20 +70,18 @@ hanning \, decay \, attack. direction<message>: set playback direction
 for grains \, fwd \, rev. grainvoices<int:1 \, 32>: set number of grainvoices.
 grainlength<float:0 \, 1>:Set length of grains. posrnd<float:0 \, 1>:
 randomize grain position. panrnd<float:0 \, 1>: randomize stereo panorama
-amprnd<float:0 \, 1>: randomize volume;
-#X text 49 307 Outlet 0: L-Output;
-#X text 48 327 Outlet 1: R-Output;
-#X text 48 32 Name: s_graincloud;
-#X text 48 363 Description: Graincloud makes a overlapping cloud of
+amprnd<float:0 \, 1>: randomize volume buffer<list>: name of buffer
+to be used \, length of buffer in samples;
+#X text 48 393 Description: Graincloud makes a overlapping cloud of
 grains with a maximum of 32 grainvoices. Well suited for spacious pads
-\, clusters + textures of soundscapes and also very smooth timestretching
-;
-#X coords 0 -1 1 1 370 400 1 40 20;
+\, clusters + textures of soundscapes and also very smooth timestretching.
+Using the buffer message you can set it to any buffer you want!;
+#X coords 0 -1 1 1 370 435 1 40 20;
 #X restore -269 53 pd REFERENCE;
 #X obj 379 262 nbx 3 14 -100 100 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 0 256;
 #X obj 188 86 phasor~ 0.01;
-#X obj 286 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 286 95 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #N canvas 770 93 450 300 switch 0;
 #X obj 54 46 inlet~;
@@ -100,19 +101,21 @@ grains with a maximum of 32 grainvoices. Well suited for spacious pads
 #X restore 136 138 pd switch;
 #X text 287 67 Set Sample Position by hand or move throught the sample
 automatically(timestretching);
-#X floatatom 953 115 5 0 0 0 - - -;
 #X msg 434 160 6;
 #X msg 396 163 0;
-#X obj 600 430 r pitch;
-#X floatatom 605 459 5 0 0 0 - - -;
-#X obj 647 505 print;
+#X obj 1080 302 prepend buffer;
+#X floatatom 1160 257 5 0 0 0 - - -;
+#X msg 1080 256 \$1-buffer0;
+#X obj 125 107 lop~ 7;
+#X obj 1080 278 pack s f;
+#X msg 467 161 7;
 #X connect 0 0 8 0;
 #X connect 0 1 9 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 3;
 #X connect 3 0 0 3;
 #X connect 5 0 0 2;
-#X connect 6 0 43 0;
+#X connect 6 0 50 0;
 #X connect 7 0 0 3;
 #X connect 8 0 4 0;
 #X connect 9 0 4 1;
@@ -149,8 +152,11 @@ automatically(timestretching);
 #X connect 41 0 43 1;
 #X connect 42 0 43 2;
 #X connect 43 0 0 1;
-#X connect 45 0 13 0;
+#X connect 45 0 40 0;
 #X connect 46 0 40 0;
-#X connect 47 0 40 0;
-#X connect 48 0 49 0;
-#X connect 48 0 50 0;
+#X connect 47 0 0 3;
+#X connect 48 0 51 1;
+#X connect 49 0 51 0;
+#X connect 50 0 43 0;
+#X connect 51 0 47 0;
+#X connect 52 0 23 0;

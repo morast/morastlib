@@ -1,4 +1,4 @@
-#N canvas 456 80 675 694 10;
+#N canvas 144 288 675 694 10;
 #X obj -142 274 *~;
 #X obj -143 336 +~;
 #X obj -31 246 *~ 256;
@@ -207,8 +207,6 @@
 #X obj 290 448 &&~;
 #X obj 154 453 *~ -1;
 #X obj 155 618 outlet~;
-#X obj 415 216 sig~ 1;
-#X floatatom 410 175 5 0 0 0 - - -;
 #X connect 0 0 5 0;
 #X connect 1 0 3 0;
 #X connect 2 0 0 0;
@@ -238,7 +236,6 @@
 #X connect 20 0 23 0;
 #X connect 21 0 19 1;
 #X connect 22 0 20 0;
-#X connect 25 0 24 0;
 #X restore -143 227 pd randomizesig;
 #N canvas 0 0 830 694 randomize 0;
 #X obj 240 72 random 1000;
@@ -257,11 +254,11 @@
 #X obj 144 546 spigot;
 #X obj 144 503 * -1;
 #X floatatom 144 632 5 0 0 0 - - -;
-#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 353 408 >= 1;
 #X obj 376 596 spigot;
-#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 240 342 t f f;
 #X obj 232 426 == 0;
@@ -271,7 +268,7 @@
 #X obj 375 574 -;
 #X obj 373 501 t b f;
 #X obj 280 409 >= 0;
-#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 377 539 1;
 #X obj 255 241 inlet;
@@ -377,6 +374,9 @@
 #X obj 43 384 + 1;
 #X obj 43 407 * 0.5;
 #X obj -111 57 t b b;
+#X obj 12 263 r \$1-buffer;
+#X obj 12 303 prepend set;
+#X obj 12 284 unpack s f;
 #X connect 0 0 4 0;
 #X connect 1 0 40 0;
 #X connect 2 0 1 1;
@@ -444,3 +444,6 @@
 #X connect 57 1 51 0;
 #X connect 57 1 14 0;
 #X connect 57 1 22 0;
+#X connect 58 0 60 0;
+#X connect 59 0 40 0;
+#X connect 60 0 59 0;
