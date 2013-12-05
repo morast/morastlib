@@ -1,4 +1,4 @@
-#N canvas 683 0 675 694 10;
+#N canvas 456 80 675 694 10;
 #X obj -142 274 *~;
 #X obj -143 336 +~;
 #X obj -31 246 *~ 256;
@@ -206,12 +206,9 @@
 #X obj 154 496 *~;
 #X obj 290 448 &&~;
 #X obj 154 453 *~ -1;
-#X obj 161 619 outlet~;
+#X obj 155 618 outlet~;
 #X obj 415 216 sig~ 1;
 #X floatatom 410 175 5 0 0 0 - - -;
-#X obj 161 557 u_snapshot~ 50;
-#X obj 446 309 u_snapshot~ 50;
-#X obj 95 242 u_snapshot~ 50;
 #X connect 0 0 5 0;
 #X connect 1 0 3 0;
 #X connect 2 0 0 0;
@@ -225,9 +222,7 @@
 #X connect 8 0 12 0;
 #X connect 8 0 14 0;
 #X connect 8 0 19 0;
-#X connect 8 0 27 0;
 #X connect 9 0 8 0;
-#X connect 9 0 28 0;
 #X connect 10 0 8 1;
 #X connect 11 0 20 1;
 #X connect 12 0 11 0;
@@ -238,13 +233,12 @@
 #X connect 15 0 17 1;
 #X connect 16 0 17 0;
 #X connect 17 0 18 0;
-#X connect 18 0 26 0;
-#X connect 19 0 26 0;
-#X connect 20 0 26 0;
+#X connect 18 0 23 0;
+#X connect 19 0 23 0;
+#X connect 20 0 23 0;
 #X connect 21 0 19 1;
 #X connect 22 0 20 0;
 #X connect 25 0 24 0;
-#X connect 26 0 23 0;
 #X restore -143 227 pd randomizesig;
 #N canvas 0 0 830 694 randomize 0;
 #X obj 240 72 random 1000;
@@ -263,11 +257,11 @@
 #X obj 144 546 spigot;
 #X obj 144 503 * -1;
 #X floatatom 144 632 5 0 0 0 - - -;
-#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 353 408 >= 1;
 #X obj 376 596 spigot;
-#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 240 342 t f f;
 #X obj 232 426 == 0;
@@ -277,7 +271,7 @@
 #X obj 375 574 -;
 #X obj 373 501 t b f;
 #X obj 280 409 >= 0;
-#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 377 539 1;
 #X obj 255 241 inlet;
@@ -338,7 +332,7 @@
 #X obj 258 82 pow 2;
 #X obj 258 36 t b f;
 #X msg 258 59 2;
-#X obj 258 144 sig~;
+#X obj 243 149 sig~;
 #X obj -31 209 *~;
 #X obj 258 -30 r \$1-pitch;
 #X floatatom 24 60 5 0 0 0 - - -;
@@ -382,6 +376,7 @@
 #X obj 5 13 t b f;
 #X obj 43 384 + 1;
 #X obj 43 407 * 0.5;
+#X obj -111 57 t b b;
 #X connect 0 0 4 0;
 #X connect 1 0 40 0;
 #X connect 2 0 1 1;
@@ -412,10 +407,7 @@
 #X connect 21 0 15 0;
 #X connect 21 0 16 0;
 #X connect 22 0 21 1;
-#X connect 23 0 8 0;
-#X connect 23 0 14 0;
-#X connect 23 0 22 0;
-#X connect 23 0 51 0;
+#X connect 23 0 57 0;
 #X connect 24 0 12 0;
 #X connect 25 0 11 0;
 #X connect 26 0 6 1;
@@ -448,3 +440,7 @@
 #X connect 54 1 12 1;
 #X connect 55 0 56 0;
 #X connect 56 0 33 0;
+#X connect 57 0 8 0;
+#X connect 57 1 51 0;
+#X connect 57 1 14 0;
+#X connect 57 1 22 0;

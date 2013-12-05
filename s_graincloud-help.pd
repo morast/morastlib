@@ -28,9 +28,9 @@
 #X msg 1029 254 panrnd \$1;
 #X msg 1029 298 amprnd \$1;
 #X obj 841 262 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 0.03 256;
 #X obj 1027 187 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 0.02 256;
 #X obj 1029 274 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 0 256;
 #X obj 1029 231 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
@@ -38,17 +38,17 @@
 #X obj 740 262 nbx 3 14 1 32 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 32 256;
 #X obj 468 256 nbx 3 14 -1 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 0.5 256;
 #X obj 468 210 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 0.58 256;
 #X obj 378 209 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0 256;
+-1 -1 42 256;
 #X obj 281 256 nbx 3 14 1 2000 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 182 256;
+-1 -1 83 256;
 #X obj 182 210 loadbang;
 #X msg 182 231 1;
 #X obj 135 86 nbx 4 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.31 256;
+-1 -1 0.06 256;
 #X text -268 9 s_graincloud - granularsynthesizer with a maximum of
 32 grainvoices;
 #N canvas 0 0 1366 702 REFERENCE 0;
@@ -100,6 +100,12 @@ grains with a maximum of 32 grainvoices. Well suited for spacious pads
 #X restore 136 138 pd switch;
 #X text 287 67 Set Sample Position by hand or move throught the sample
 automatically(timestretching);
+#X floatatom 953 115 5 0 0 0 - - -;
+#X msg 434 160 6;
+#X msg 396 163 0;
+#X obj 600 430 r pitch;
+#X floatatom 605 459 5 0 0 0 - - -;
+#X obj 647 505 print;
 #X connect 0 0 8 0;
 #X connect 0 1 9 0;
 #X connect 1 0 2 0;
@@ -143,3 +149,8 @@ automatically(timestretching);
 #X connect 41 0 43 1;
 #X connect 42 0 43 2;
 #X connect 43 0 0 1;
+#X connect 45 0 13 0;
+#X connect 46 0 40 0;
+#X connect 47 0 40 0;
+#X connect 48 0 49 0;
+#X connect 48 0 50 0;

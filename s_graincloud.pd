@@ -1,4 +1,4 @@
-#N canvas 30 43 1227 694 10;
+#N canvas 613 111 1227 694 10;
 #X msg -525 -7 hanning;
 #X msg -468 -7 decay;
 #X msg -423 -7 attack;
@@ -7,11 +7,11 @@
 #X obj -526 128 s \$0-metrospeed;
 #X obj -525 84 s \$0-grainlength;
 #X floatatom -244 -135 5 0 0 0 - - -;
-#N canvas 649 189 696 439 buffer 0;
+#N canvas 649 189 696 439 buffer 1;
 #X obj 184 203 soundfiler;
 #X obj 184 91 openpanel;
 #X msg -220 108 set \$1;
-#X msg -220 132 C:/Users/Moritz/Documents/Musikmaschine/Samples/Recordings/Zoom Field Recordings/Clocks and Piano/FOLDER01/STE-000.wav
+#X msg -220 132 C:/Users/Moritz/Documents/Musikmaschine/Samples/Recordings/Zoom Field Recordings/Gitarre/080117-001.wav
 ;
 #X floatatom 184 224 20 0 0 0 - - -;
 #X obj -220 83 loadbang;
@@ -50,7 +50,7 @@
 #X floatatom -525 245 5 0 0 0 - - -;
 #X obj -525 426 catch~ \$0-out_L;
 #X obj -426 426 catch~ \$0-out_R;
-#N canvas 379 287 381 387 metro 0;
+#N canvas 261 614 381 387 metro 1;
 #X obj -340 -8 f;
 #X obj -340 15 + 1;
 #X obj -340 -38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -105,7 +105,8 @@
 #X floatatom -405 59 5 0 0 0 - - -;
 #X floatatom -330 60 5 0 0 0 - - -;
 #X floatatom -257 61 5 0 0 0 - - -;
-#N canvas 755 70 188 229 voices 1;
+#N canvas 732 435 188 211 voices 1;
+#X obj -301 352 s_grainvoice \$0 voice21;
 #X obj -301 -48 s_grainvoice \$0 voice1;
 #X obj -301 412 s_grainvoice \$0 voice24;
 #X obj -301 372 s_grainvoice \$0 voice22;
@@ -130,7 +131,6 @@
 #X obj -301 272 s_grainvoice \$0 voice17;
 #X obj -301 292 s_grainvoice \$0 voice18;
 #X obj -301 332 s_grainvoice \$0 voice20;
-#X obj -301 352 s_grainvoice \$0 voice21;
 #X obj -301 392 s_grainvoice \$0 voice23;
 #X obj -301 452 s_grainvoice \$0 voice26;
 #X obj -301 472 s_grainvoice \$0 voice27;
