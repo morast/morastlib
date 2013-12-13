@@ -254,11 +254,11 @@
 #X obj 144 546 spigot;
 #X obj 144 503 * -1;
 #X floatatom 144 632 5 0 0 0 - - -;
-#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 353 442 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 353 408 >= 1;
 #X obj 376 596 spigot;
-#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 280 525 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 240 342 t f f;
 #X obj 232 426 == 0;
@@ -268,7 +268,7 @@
 #X obj 375 574 -;
 #X obj 373 501 t b f;
 #X obj 280 409 >= 0;
-#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 315 455 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 377 539 1;
 #X obj 255 241 inlet;
@@ -349,7 +349,7 @@
 #X obj 176 2 sel fwd rev;
 #X msg 176 31 1;
 #X msg 207 32 0;
-#X obj 176 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 176 68 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 173 -20 prepend symbol;
 #X connect 0 0 7 0;
@@ -369,7 +369,7 @@
 #X connect 13 0 5 0;
 #X connect 13 0 8 0;
 #X connect 14 0 10 0;
-#X restore -31 160 pd direction;
+#X restore -30 174 pd direction;
 #X obj 5 13 t b f;
 #X obj 43 384 + 1;
 #X obj 43 407 * 0.5;
