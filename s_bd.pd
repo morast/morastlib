@@ -19,7 +19,7 @@
 #X restore 555 76 graph;
 #X obj 78 74 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 681 292 450 300 pop 1;
+#N canvas 681 292 450 300 pop 0;
 #X obj 118 123 vline~;
 #X obj 120 192 osc~;
 #X obj 117 153 *~ 2000;
@@ -50,7 +50,7 @@
 #X obj 268 401 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 12700 1;
 #X obj 338 401 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X floatatom 317 233 5 0 0 0 - - -;
 #N canvas 773 312 450 300 (subpatch) 0;
 #X restore 415 118 pd;
@@ -118,7 +118,7 @@
 #X connect 26 0 12 0;
 #X connect 28 0 22 1;
 #X connect 29 0 12 1;
-#X restore 78 176 pd body;
+#X restore 86 176 pd body;
 #X obj 87 290 *~;
 #X floatatom 202 265 5 0 0 0 - - -;
 #N canvas 421 343 450 300 dist 0;
@@ -1290,7 +1290,7 @@
 #X obj -40 390 tabread~ dist;
 #X obj 86 498 outlet~;
 #X obj 78 -1 inlet;
-#X floatatom 167 144 5 0 0 0 - - -;
+#X floatatom 175 144 5 0 0 0 - - -;
 #X connect 1 0 2 0;
 #X connect 1 0 9 0;
 #X connect 2 0 3 0;

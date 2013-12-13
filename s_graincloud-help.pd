@@ -28,7 +28,7 @@
 #X msg 949 254 panrnd \$1;
 #X msg 949 298 amprnd \$1;
 #X obj 841 262 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.01 256;
+-1 -1 0.14 256;
 #X obj 947 187 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 0.09 256;
 #X obj 949 274 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
@@ -42,13 +42,13 @@
 #X obj 468 210 nbx 3 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
 -1 -1 1 256;
 #X obj 378 209 nbx 3 14 0 127 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 60 256;
+-1 -1 67 256;
 #X obj 281 256 nbx 3 14 1 2000 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 89 256;
+-1 -1 107 256;
 #X obj 182 210 loadbang;
 #X msg 182 231 1;
 #X obj 126 61 nbx 4 14 0 1 0 1 empty empty empty 0 -8 0 10 -262144
--1 -1 0.69 256;
+-1 -1 0.57 256;
 #X text -268 9 s_graincloud - granularsynthesizer with a maximum of
 32 grainvoices;
 #N canvas 0 0 1366 702 REFERENCE 0;
@@ -110,6 +110,8 @@ automatically(timestretching);
 #X obj 1080 278 pack s f;
 #X msg 467 161 7;
 #X text 367 448 Rev Mode Check Pitch Length stuff and smp~;
+#X floatatom 864 197 5 0 0 0 - - -;
+#X msg 853 160 0.002;
 #X connect 0 0 8 0;
 #X connect 0 1 9 0;
 #X connect 1 0 2 0;
@@ -161,3 +163,5 @@ automatically(timestretching);
 #X connect 50 0 43 0;
 #X connect 51 0 47 0;
 #X connect 52 0 23 0;
+#X connect 54 0 22 0;
+#X connect 55 0 54 0;
