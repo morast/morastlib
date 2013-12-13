@@ -58,7 +58,7 @@
 #X obj 190 81 / 24;
 #X floatatom 190 111 5 0 0 0 - - -;
 #X obj 163 145 metro;
-#X obj 163 117 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 163 117 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 163 175 counter;
 #X obj 243 214 % 24;
@@ -144,7 +144,7 @@
 #X obj 272 64 loadbang;
 #X msg 272 86 120;
 #X obj 330 63 s transport;
-#X obj 330 41 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 330 41 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #N canvas 540 289 450 300 bank2 0;
 #N canvas 112 119 862 437 loopstep 0;
@@ -597,7 +597,7 @@
 #X obj 189 83 sel 0 1 2 3 4;
 #X obj 356 110 sel 1 0;
 #X msg 105 17 0;
-#X obj 357 83 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 357 83 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 71 16 1;
 #X msg 199 279 send /wac.lp/0/3/led 8 \$1 \$2 \$3;
@@ -981,11 +981,11 @@
 #X obj 176 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 61 330 *~;
-#X obj 136 359 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 101 351 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 573 126 Initit LEDs;
 #X obj 514 83 lp_seq;
-#X obj 296 324 r bypass;
+#X obj 101 322 r bypass;
 #X connect 1 0 8 0;
 #X connect 1 0 23 0;
 #X connect 3 0 2 0;
