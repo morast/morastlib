@@ -1,12 +1,12 @@
 #N canvas 136 0 1071 704 10;
 #X obj 206 -57 catch~ masterout;
 #X obj 402 -1 s \$0-overdub;
-#X obj 402 -24 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 402 -24 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 482 -1 s \$0-play;
 #X obj 482 -25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 549 0 1363 704 record 1;
+#N canvas 549 0 1363 704 record 0;
 #X obj 368 128 table \$0-temp;
 #X obj 68 177 inlet~;
 #X msg 304 130 stop;
@@ -218,11 +218,14 @@ create 2 instances of the same buffer;
 #X obj 274 -154 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 0 0 563 300 playback 1;
-#X obj 120 20 loopplayback 1223 0;
+#X obj 120 20 loopplayback 1005 1;
 #X obj 240 20 u_dummy;
+#X obj 120 40 loopplayback 1005 4;
+#X obj 240 40 u_dummy;
 #X restore 207 -96 pd playback;
 #N canvas 323 0 450 300 tables 0;
-#X obj 120 20 table 1223-buffer0;
+#X obj 120 20 table 1005-buffer1;
+#X obj 120 40 table 1005-buffer4;
 #X restore 207 -115 pd tables;
 #N canvas 1375 354 450 300 reset 0;
 #X obj 303 182 s \$0-reset;
@@ -239,7 +242,8 @@ create 2 instances of the same buffer;
 #X connect 4 0 5 0;
 #X restore 274 -134 pd reset;
 #N canvas 1402 373 450 300 gui 0;
-#X obj 0 0 loop_gui 1223 0;
+#X obj 0 0 loop_gui 1005 1;
+#X obj 0 80 loop_gui 1005 4;
 #X coords 0 -1 1 1 200 400 2 0 0;
 #X restore 1 -207 pd gui;
 #X obj 331 237 r \$0-pos;
@@ -266,7 +270,6 @@ create 2 instances of the same buffer;
 #X obj 567 238 r \$0-length;
 #X obj 765 236 r \$0-length;
 #X msg 765 277 length \$1;
-#X obj 765 256 / 44.1;
 #X connect 0 0 10 0;
 #X connect 2 0 1 0;
 #X connect 2 0 17 0;
@@ -314,6 +317,5 @@ create 2 instances of the same buffer;
 #X connect 45 0 44 0;
 #X connect 46 0 29 0;
 #X connect 47 0 29 0;
-#X connect 48 0 50 0;
+#X connect 48 0 49 0;
 #X connect 49 0 29 0;
-#X connect 50 0 49 0;
