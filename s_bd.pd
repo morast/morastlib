@@ -1,4 +1,4 @@
-#N canvas 587 318 1382 1006 10;
+#N canvas 0 0 1370 704 10;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array body 100 float 3;
 #A 0 1.06071 0.946422 0.903564 0.860707 0.846421 0.81785 0.803564 0.789278
@@ -19,7 +19,7 @@
 #X restore 555 76 graph;
 #X obj 78 74 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#N canvas 681 292 450 300 pop 1;
+#N canvas 681 292 450 300 pop 0;
 #X obj 118 123 vline~;
 #X obj 120 192 osc~;
 #X obj 117 153 *~ 2000;
@@ -48,9 +48,9 @@
 #X obj 341 161 *~;
 #X floatatom 356 139 5 0 0 0 - - -;
 #X obj 268 401 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X obj 338 401 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X floatatom 317 233 5 0 0 0 - - -;
 #N canvas 773 312 450 300 (subpatch) 0;
 #X restore 415 118 pd;
