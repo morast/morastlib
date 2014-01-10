@@ -200,7 +200,6 @@
 #X connect 11 0 10 0;
 #X connect 12 0 3 0;
 #X restore 535 174 pd comb;
-#X obj 634 133 print tester;
 #X msg 625 -55 pitch \$1;
 #X floatatom 532 -67 5 0 0 0 - - -;
 #X obj 706 -52 u_dispatch \$0 \$1 pitch;
@@ -213,7 +212,6 @@
 #X connect 3 0 5 1;
 #X connect 5 0 4 0;
 #X connect 6 0 7 0;
-#X connect 6 0 19 0;
 #X connect 7 0 9 0;
 #X connect 7 1 13 0;
 #X connect 7 2 14 0;
@@ -221,7 +219,7 @@
 #X connect 7 4 16 0;
 #X connect 7 5 17 0;
 #X connect 7 6 18 0;
-#X connect 8 0 22 0;
+#X connect 8 0 21 0;
 #X connect 10 0 9 1;
 #X connect 10 1 13 1;
 #X connect 10 2 14 1;
@@ -231,9 +229,9 @@
 #X connect 10 6 18 1;
 #X connect 11 0 10 0;
 #X connect 12 0 5 2;
-#X connect 20 0 22 0;
-#X connect 21 0 20 0;
+#X connect 19 0 21 0;
+#X connect 20 0 19 0;
+#X connect 21 0 22 0;
 #X connect 22 0 23 0;
 #X connect 23 0 24 0;
 #X connect 24 0 25 0;
-#X connect 25 0 26 0;

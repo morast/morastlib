@@ -51,8 +51,8 @@
 #X msg 142 641 green;
 #X obj 311 435 f;
 #X obj 142 618 loadbang;
-#X obj 311 460 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X obj 311 460 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 2
+2;
 #X obj 311 331 t b b f f;
 #X obj 311 299 spigot;
 #N canvas 792 395 883 447 ledcolor 0;
@@ -289,7 +289,7 @@
 #X obj 92 215 sel 1 0;
 #X obj 92 139 sel 1;
 #X obj 92 103 inlet;
-#X obj 237 120 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 237 120 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 92 303 outlet;
 #X obj 15 169 inlet;
@@ -368,7 +368,7 @@
 #X connect 36 0 35 0;
 #X connect 37 0 1 2;
 #X restore 165 61 pd setsteps;
-#N canvas 0 0 1370 704 readsteps 1;
+#N canvas 0 0 1366 702 readsteps 0;
 #X floatatom -33 73 5 0 0 0 - - -;
 #X obj -33 176 s_simpler;
 #X floatatom 72 122 5 0 0 0 - - -;
@@ -423,7 +423,13 @@
 #X obj 129 91 sel 0;
 #X obj 287 94 sel 0;
 #X obj 447 96 sel 0;
-#X obj -34 258 throw~ stepSEQ;
+#X obj -34 304 throw~ stepSEQ;
+#X obj -33 253 *~ 1;
+#X obj 750 30 u_peakdetect;
+#X obj 749 9 r~ \$1-shoe;
+#X floatatom 819 54 5 0 0 0 - - -;
+#X floatatom 833 4 5 0 0 0 - - -;
+#X msg 852 144 2;
 #X connect 0 0 8 1;
 #X connect 0 0 38 0;
 #X connect 1 0 7 0;
@@ -436,7 +442,7 @@
 #X connect 6 0 36 0;
 #X connect 6 0 37 0;
 #X connect 6 0 43 0;
-#X connect 7 0 50 0;
+#X connect 7 0 51 0;
 #X connect 8 0 10 0;
 #X connect 9 0 1 0;
 #X connect 9 1 8 0;
@@ -488,10 +494,16 @@
 #X connect 47 1 17 0;
 #X connect 48 1 25 0;
 #X connect 49 1 33 0;
+#X connect 51 0 50 0;
+#X connect 52 0 56 0;
+#X connect 52 1 54 0;
+#X connect 53 0 52 0;
+#X connect 55 0 52 1;
+#X connect 56 0 39 0;
 #X restore 150 169 pd readsteps;
 #X obj 165 -55 route /wac.lp/0/1/press;
 #X obj 165 -86 r fromLaunchpad;
-#N canvas 1159 129 718 421 modes 0;
+#N canvas 1159 129 718 421 modes 1;
 #X obj -6 -94 inlet;
 #X obj -4 -65 unpack f f f;
 #X obj 364 126 sel 3;
@@ -520,15 +532,22 @@
 #X obj 364 175 spigot;
 #X obj 412 200 s \$0-mode;
 #X obj 187 41 == 2;
+#X obj 283 41 == 8;
+#X obj 283 63 &&;
+#X obj 283 90 sel 1;
+#X obj 316 40 == 7;
+#X msg 283 116 7;
 #X connect 0 0 1 0;
 #X connect 1 0 5 0;
 #X connect 1 0 9 0;
 #X connect 1 0 13 0;
 #X connect 1 0 16 0;
+#X connect 1 0 28 0;
 #X connect 1 1 4 0;
 #X connect 1 1 12 0;
 #X connect 1 1 19 0;
 #X connect 1 1 27 0;
+#X connect 1 1 31 0;
 #X connect 1 2 25 1;
 #X connect 2 0 20 0;
 #X connect 4 0 6 1;
@@ -555,6 +574,11 @@
 #X connect 25 0 3 0;
 #X connect 25 0 26 0;
 #X connect 27 0 14 1;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 30 0 32 0;
+#X connect 31 0 29 1;
+#X connect 32 0 25 0;
 #X restore 254 -31 pd modes;
 #X msg 401 -15 clear;
 #X obj 401 8 t b;
@@ -562,12 +586,12 @@
 #N canvas 726 64 885 694 sequenz 0;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array \$0-seq0 16 float 3;
-#A 0 0 0 0 0 0 0 1 0 0 0 1 0 0 1 0 0;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 2 16 0 200 140 1 0 0;
 #X restore -101 28 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array \$0-seq1 16 float 3;
-#A 0 0 1 1 0 0 1 0 1 0 1 1 1 0 0 1 1;
+#A 0 0 0 1 2 0 0 2 0 0 0 2 0 0 0 2 0;
 #X coords 0 2 16 0 200 140 1 0 0;
 #X restore -102 196 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
@@ -577,12 +601,12 @@
 #X restore -100 356 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array \$0-seq3 16 float 3;
-#A 0 0 0 0 1 0 0 1 0 0 0 0 1 0 0 0 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 2 16 0 200 140 1 0 0;
 #X restore -100 515 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array \$0-seq4 16 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 0 2 0 0 0 2 0 0 0 2 0 0 0 2 0 0 0;
 #X coords 0 2 16 0 200 140 1 0 0;
 #X restore 115 28 graph;
 #N canvas 0 0 450 300 (subpatch) 0;
@@ -662,11 +686,11 @@ const 0 \; \$1-seq3 const 0 \; \$1-seq4 const 0 \; \$1-seq5 const 0
 #N canvas 302 97 450 300 seqclock 0;
 #X obj 122 10 counter;
 #X obj 122 34 % 8;
-#X obj 72 77 s seq-pos;
+#X obj 122 79 s seq-pos;
 #X obj 122 -31 r globalMetro16;
 #X obj 221 -31 r globalMetro32;
 #X obj 22 -30 r globalMetro8;
-#X obj 143 78 outlet;
+#X obj 193 80 outlet;
 #X obj 222 17 r \$0-seqlength;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
@@ -681,6 +705,8 @@ const 0 \; \$1-seq3 const 0 \; \$1-seq4 const 0 \; \$1-seq5 const 0
 #X floatatom 293 71 5 0 0 0 - - -;
 #X msg 478 -15 2;
 #X text 446 120 Mute Function for every channel;
+#X obj 437 -62 r \$0-mode;
+#X obj 553 -46 sel 7;
 #X connect 3 0 5 0;
 #X connect 3 0 1 0;
 #X connect 4 0 3 0;
@@ -699,3 +725,5 @@ const 0 \; \$1-seq3 const 0 \; \$1-seq4 const 0 \; \$1-seq5 const 0
 #X connect 15 0 14 0;
 #X connect 15 0 17 0;
 #X connect 17 0 12 0;
+#X connect 19 0 20 0;
+#X connect 20 0 6 0;

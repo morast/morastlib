@@ -1,4 +1,4 @@
-#N canvas 379 252 636 521 10;
+#N canvas 379 252 806 521 10;
 #X obj 200 109 vd~ \$0-delay;
 #X obj -42 127 *~ 0.7;
 #X obj -9 104 r \$0-feedback;
@@ -46,6 +46,7 @@
 #X restore 264 50 pd quantize;
 #X obj 381 101 u_dispatch \$0 \$1 deltime;
 #X obj 381 123 u_dispatch \$0 \$1 lag;
+#X obj 583 55 u_load \$0 \$2;
 #X connect 0 0 1 0;
 #X connect 0 0 6 1;
 #X connect 1 0 3 0;

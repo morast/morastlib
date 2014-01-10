@@ -1,4 +1,4 @@
-#N canvas 223 68 914 700 10;
+#N canvas 655 1 914 700 10;
 #N canvas 0 0 450 300 dw 0;
 #X obj 100 85 inlet~;
 #X obj 98 189 outlet~;
@@ -330,7 +330,6 @@ License along with this program. If not \, see <http://www.gnu.org/licenses/>.
 #X restore 782 20 pd LICENSE-GPL;
 #X obj 220 531 u_snapshot~;
 #X floatatom 237 496 5 0 0 0 - - -;
-#X obj 300 486 print;
 #X obj 733 192 u_dispatch \$0 \$1 att;
 #X obj 733 215 u_dispatch \$0 \$1 rel;
 #X obj 733 237 u_dispatch \$0 \$1 comp1;
@@ -338,6 +337,8 @@ License along with this program. If not \, see <http://www.gnu.org/licenses/>.
 #X obj 733 281 u_dispatch \$0 \$1 thresh;
 #X obj 733 302 u_dispatch \$0 \$1 dry;
 #X obj 733 325 u_dispatch \$0 \$1 makeup;
+#X obj 741 103 u_load \$0 \$2;
+#X floatatom 152 573 5 0 0 0 - - -;
 #X connect 0 0 1 0;
 #X connect 1 0 4 0;
 #X connect 1 0 46 1;
@@ -380,12 +381,12 @@ License along with this program. If not \, see <http://www.gnu.org/licenses/>.
 #X connect 45 0 58 0;
 #X connect 46 0 3 0;
 #X connect 47 0 46 2;
+#X connect 47 0 71 0;
 #X connect 48 0 49 1;
 #X connect 48 0 61 0;
 #X connect 49 0 46 0;
 #X connect 50 0 48 0;
 #X connect 51 0 56 0;
-#X connect 51 0 63 0;
 #X connect 52 0 53 0;
 #X connect 53 0 50 0;
 #X connect 54 0 23 0;
@@ -393,11 +394,11 @@ License along with this program. If not \, see <http://www.gnu.org/licenses/>.
 #X connect 56 0 50 0;
 #X connect 56 0 62 0;
 #X connect 57 0 40 0;
-#X connect 57 1 64 0;
+#X connect 57 1 63 0;
 #X connect 58 0 57 0;
+#X connect 63 0 64 0;
 #X connect 64 0 65 0;
 #X connect 65 0 66 0;
 #X connect 66 0 67 0;
 #X connect 67 0 68 0;
 #X connect 68 0 69 0;
-#X connect 69 0 70 0;
