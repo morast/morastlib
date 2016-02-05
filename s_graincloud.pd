@@ -1,4 +1,4 @@
-#N canvas 106 87 1227 686 10;
+#N canvas 91 82 1227 686 10;
 #X msg -525 -7 hanning;
 #X msg -468 -7 decay;
 #X msg -423 -7 attack;
@@ -56,7 +56,7 @@
 #X floatatom -525 245 5 0 0 0 - - -;
 #X obj -525 426 catch~ \$0-out_L;
 #X obj -426 426 catch~ \$0-out_R;
-#N canvas 241 291 381 387 metro 1;
+#N canvas 235 301 381 387 metro 1;
 #X obj -340 -8 f;
 #X obj -340 15 + 1;
 #X obj -340 -38 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -64,25 +64,27 @@
 #X floatatom -340 38 5 0 0 0 - - -;
 #X msg -301 -25 0;
 #X obj -303 37 sel 6;
-#X obj -146 -132 r \$0-grainvoices;
+#X obj -168 -173 r \$0-grainvoices;
 #X obj -266 -1 t b f;
 #X obj -340 183 send;
 #X obj -340 102 t b f;
 #X obj -319 126 pack 0 \$0;
 #X obj -340 -64 metro;
-#X obj -271 -117 inlet;
+#X obj -407 -138 inlet;
 #X obj -190 98 outlet;
-#X obj -358 -94 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
+#X obj -340 -139 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
 #X obj -220 1 s \$0-metro;
-#X obj -358 -121 r \$0-metroON;
-#X obj -240 -132 r \$0-grainsize;
-#X obj -239 -81 /;
-#X floatatom -121 -72 5 0 0 0 - - -;
-#X obj -193 -97 t b f;
-#X floatatom -239 -55 5 0 0 0 - - -;
+#X obj -340 -173 r \$0-metroON;
+#X obj -260 -173 r \$0-grainsize;
+#X obj -260 -145 /;
+#X obj -168 -139 t b f;
 #X msg -319 155 symbol \$2-\$1-metro;
-#X obj -265 -92 > 0;
+#X obj -260 -118 > 0;
+#X obj -260 -96 change;
+#X obj -313 -93 +;
+#X obj -178 -110 r \$0-gap;
+#X obj -178 -82 t b f;
 #X connect 0 0 1 0;
 #X connect 1 0 0 1;
 #X connect 1 0 3 0;
@@ -94,24 +96,28 @@
 #X connect 4 0 0 1;
 #X connect 5 0 4 0;
 #X connect 6 0 7 0;
-#X connect 6 0 20 0;
+#X connect 6 0 19 0;
 #X connect 7 0 4 0;
 #X connect 7 1 5 1;
 #X connect 9 0 8 0;
 #X connect 9 1 10 0;
-#X connect 10 0 22 0;
+#X connect 10 0 20 0;
 #X connect 11 0 2 0;
 #X connect 12 0 2 0;
 #X connect 14 0 11 0;
 #X connect 16 0 14 0;
 #X connect 17 0 18 0;
-#X connect 18 0 11 1;
-#X connect 18 0 21 0;
 #X connect 18 0 23 0;
-#X connect 20 0 18 0;
-#X connect 20 1 18 1;
-#X connect 22 0 8 1;
-#X connect 23 0 14 0;
+#X connect 18 0 21 0;
+#X connect 19 0 18 0;
+#X connect 19 1 18 1;
+#X connect 20 0 8 1;
+#X connect 21 0 22 0;
+#X connect 22 0 14 0;
+#X connect 23 0 11 1;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 25 1 23 1;
 #X restore -405 -110 pd metro;
 #X obj -405 83 s \$0-panrnd;
 #X obj -257 83 s \$0-amprnd;
@@ -119,7 +125,7 @@
 #X floatatom -405 59 5 0 0 0 - - -;
 #X floatatom -330 60 5 0 0 0 - - -;
 #X floatatom -257 61 5 0 0 0 - - -;
-#N canvas 579 167 308 596 voices 0;
+#N canvas 576 172 308 596 voices 0;
 #X obj -301 -48 s_grainvoice \$0 1;
 #X obj -301 -28 s_grainvoice \$0 2;
 #X obj -301 -7 s_grainvoice \$0 3;
@@ -173,18 +179,18 @@
 #X obj -306 286 s \$0-direction;
 #X msg -306 254 fwd;
 #X msg -276 254 rev;
-#N canvas 91 146 556 300 init 0;
+#N canvas 85 156 556 300 init 0;
 #X obj 228 57 loadbang;
 #X obj 228 81 \$0;
+#X obj 327 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X msg 228 108 \; \$1-grainvoices 8 \; \$1-envelope hanning \; \$1-grainlength
 0.1 \; \$1-metrospeed 100 \; \$1-metro 0 \; \$1-pan 0 \; \$1-amp 1
 \; \$1-pitch 0 \; \$1-midipitch 60 \; \$1-panrnd 0 \; \$1-posrnd 0
-\; \$1-amprnd 0 \; \$1-direction fwd \;;
-#X obj 327 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+\; \$1-amprnd 0.1 \; \$1-direction fwd \; \$1-grainsize 60 \;;
 #X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 3 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
 #X restore -406 -90 pd init;
 #X obj -384 -132 r \$0-graintrigger;
 #X obj -405 -161 inlet;
@@ -213,6 +219,7 @@
 #X connect 1 0 2 0;
 #X connect 1 1 3 0;
 #X restore -14 147 pd bufferRoute;
+#X obj -14 174 u_dispatch \$0 \$1 gap;
 #X connect 0 0 3 0;
 #X connect 1 0 3 0;
 #X connect 2 0 3 0;
@@ -256,3 +263,4 @@
 #X connect 61 0 57 0;
 #X connect 63 0 40 0;
 #X connect 64 0 51 0;
+#X connect 65 0 66 0;

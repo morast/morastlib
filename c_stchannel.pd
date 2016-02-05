@@ -1,9 +1,9 @@
-#N canvas 47 0 950 704 10;
-#X obj 106 370 dbtorms;
-#X obj 101 117 vsl 15 128 0 100 0 0 \$0-vol \$0-vol Vol 0 -9 0 10 -262144
--1 -1 11800 1;
-#X obj 106 526 *~;
-#X obj 106 452 sig~;
+#N canvas 304 82 950 686 10;
+#X obj 106 366 dbtorms;
+#X obj 101 117 vsl 15 128 0 100 0 0 \$0-vol \$0-vol karl 0 -9 0 10
+-262144 -1 -1 12700 1;
+#X obj 106 522 *~;
+#X obj 106 448 sig~;
 #N canvas 342 265 450 361 cospan 0;
 #X obj 50 196 outlet~ left;
 #X obj 160 197 outlet~ right;
@@ -40,30 +40,52 @@
 #X connect 15 0 11 0;
 #X connect 16 0 1 0;
 #X connect 17 0 0 0;
-#X restore 155 508 pd cospan;
-#X obj 155 438 inlet~;
-#X obj 133 560 *~;
-#X obj 181 462 inlet~;
-#X obj 106 401 t b f;
-#X obj 106 429 *;
+#X restore 155 504 pd cospan;
+#X obj 155 434 inlet~;
+#X obj 133 556 *~;
+#X obj 181 458 inlet~;
+#X obj 106 397 t b f;
+#X obj 106 425 *;
 #X obj 101 290 tgl 15 0 \$0-mute \$0-mute Mute 0 -7 0 10 -262144 -1
 -1 0 1;
-#X obj 226 84 inlet;
-#X obj 107 692 outlet~ L-Out Post;
-#X obj 133 672 outlet~ R-Out-Post;
-#X obj 206 598 outlet~ R-Out-Pre;
-#X obj 155 575 outlet~ L-Out-Pre;
-#X obj 106 340 r \$0-vol;
+#X obj 226 80 inlet;
+#X obj 107 688 outlet~ L-Out Post;
+#X obj 133 668 outlet~ R-Out-Post;
+#X obj 206 594 outlet~ R-Out-Pre;
+#X obj 155 571 outlet~ L-Out-Pre;
+#X obj 106 336 r \$0-vol;
 #X obj 101 262 nbx 3 14 -50 50 0 0 \$0-pan \$0-pan Pan 0 -8 0 10 -262144
 -1 -1 0 256;
-#X obj 226 119 u_dispatch \$0 \$1 vol;
-#X obj 226 143 u_dispatch \$0 \$1 pan;
-#X obj 226 164 u_dispatch \$0 \$1 mute;
-#X obj 45 341 r \$0-mute;
-#X obj 206 484 r \$0-pan;
-#X obj 45 366 == 0;
-#X obj 357 119 u_load \$0 \$2;
-#X obj 106 474 lop~ 50;
+#X obj 226 115 u_dispatch \$0 \$1 vol;
+#X obj 226 139 u_dispatch \$0 \$1 pan;
+#X obj 226 160 u_dispatch \$0 \$1 mute;
+#X obj 45 337 r \$0-mute;
+#X obj 206 480 r \$0-pan;
+#X obj 45 362 == 0;
+#X obj 357 115 u_load \$0 \$2;
+#X obj 106 470 lop~ 50;
+#N canvas 576 232 450 300 init 0;
+#X obj 32 2 \$0;
+#X obj 32 -21 loadbang;
+#X msg 32 39 \; \$1-vol 100 \; \$1-pan 0 \; \$1-mute 0 \;;
+#X msg 129 91 \; \$2-vol label \$1;
+#X obj 123 19 t b f;
+#X obj 129 42 symbol \$1;
+#X obj 134 -5 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 234 71 print;
+#X obj 129 71 pack s f;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 1 0 0 0;
+#X connect 4 0 5 0;
+#X connect 4 1 8 1;
+#X connect 5 0 8 0;
+#X connect 6 0 4 0;
+#X connect 8 0 3 0;
+#X restore 357 135 pd init;
+#X obj 432 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 0 0 8 0;
 #X connect 2 0 12 0;
 #X connect 3 0 25 0;
