@@ -1,30 +1,30 @@
 #N canvas 65 82 650 686 10;
 #X obj 113 101 vradio 12 1 0 8 \$0-step1out \$0-step1in empty 0 -8
-0 10 -44926 -86853 -262144 0;
+0 10 -44926 -86853 -262144 7;
 #X obj 125 101 vradio 12 1 0 8 \$0-step2out \$0-step2in empty 0 -8
-0 10 -44926 -86853 -262144 1;
+0 10 -44926 -86853 -262144 7;
 #X obj 137 101 vradio 12 1 0 8 \$0-step3out \$0-step3in empty 0 -8
-0 10 -166441 -86853 -262144 0;
+0 10 -44926 -86853 -262144 7;
 #X obj 149 101 vradio 12 1 0 8 \$0-step4out \$0-step4in empty 0 -8
-0 10 -44926 -86853 -262144 1;
+0 10 -44926 -86853 -262144 7;
 #X obj 101 101 vradio 12 1 0 8 \$0-step0out \$0-step0in empty 0 -8
-0 10 -166441 -86853 -262144 0;
+0 10 -44926 -86853 -262144 7;
 #X obj 161 101 vradio 12 1 0 8 \$0-step5out \$0-step5in empty 0 -8
-0 10 -166441 -86853 -262144 0;
+0 10 -44926 -86853 -262144 7;
 #X obj 172 101 vradio 12 1 0 8 \$0-step6out \$0-step6in empty 0 -8
-0 10 -44926 -86853 -262144 1;
+0 10 -44926 -86853 -262144 7;
 #X obj 183 101 vradio 12 1 0 8 \$0-step7out \$0-step7in empty 0 -8
-0 10 -166441 -86853 -262144 0;
+0 10 -44926 -86853 -262144 7;
 #X obj 282 94 table \$0-grid 8;
 #X obj 100 197 hradio 12 1 0 8 empty \$0-stepdisplay empty 0 -8 0 10
--4034 -1 -1 1;
+-4034 -1 -1 2;
 #X obj 410 35 inlet;
 #X obj 513 138 s \$0-stepindex;
 #X obj 282 240 tabread \$0-grid 8;
 #X obj 282 135 r \$0-stepindex;
 #X obj 282 348 outlet;
 #X obj 338 186 r \$0-array;
-#N canvas 740 187 321 294 arguments 0;
+#N canvas 737 192 321 294 arguments 0;
 #X obj 3 113 s \$0-array;
 #X msg 69 89 set \$1-grid;
 #X obj 69 68 \$0;
@@ -174,7 +174,7 @@
 #X connect 62 0 54 1;
 #X connect 63 0 55 1;
 #X restore 282 68 pd settable;
-#N canvas 583 465 450 300 segment 0;
+#N canvas 580 442 450 300 segment 0;
 #X obj 26 52 \$2;
 #X obj 26 21 loadbang;
 #X obj 26 77 == 0;
@@ -196,7 +196,7 @@
 #X obj 297 156 r \$0-segment;
 #X obj 516 118 s \$0-stepdisplay;
 #X obj 410 127 s \$0-update;
-#N canvas 762 239 451 442 settings 0;
+#N canvas 756 249 451 442 settings 0;
 #X msg 48 135 color \$1;
 #X obj 48 161 s \$0-global;
 #X obj 358 177 pack f \$0;
@@ -252,7 +252,7 @@
 #X connect 22 0 17 0;
 #X restore 5 61 pd settings;
 #X obj 410 58 route update mod;
-#N canvas 715 82 650 686 doubleclick 1;
+#N canvas 715 82 650 686 doubleclick 0;
 #X obj -101 -140 f;
 #X obj -71 -140 + 1;
 #X msg -64 -164 0;
@@ -280,7 +280,7 @@
 #X msg 166 -164 0;
 #X msg 129 108 color 1;
 #X msg 193 129 color \$1;
-#X obj 129 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 129 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 193 108 v \$0-color;
 #X obj 129 36 t f f f f f f f;
@@ -300,7 +300,7 @@
 #X msg 436 -164 0;
 #X msg 399 108 color 1;
 #X msg 463 129 color \$1;
-#X obj 399 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 399 15 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 463 108 v \$0-color;
 #X obj 399 36 t f f f f f f f;
@@ -742,7 +742,7 @@
 #X obj 674 159 loadbang;
 #X obj 402 240 tabread \$0-omit;
 #X obj 282 114 table \$0-omit 8;
-#N canvas 709 92 650 686 update 0;
+#N canvas 697 87 650 686 update 1;
 #X obj -37 -109 loadbang;
 #X obj -10 198 tabread \$1;
 #X obj -10 12 symbol \$1;
@@ -791,7 +791,6 @@
 #X obj -37 -42 t b b b;
 #X obj -234 -16 v \$0-mod;
 #X obj -561 54 clip 0 8;
-#X obj -516 10 r \$0-mod;
 #X obj -516 33 - 1;
 #X connect 0 0 45 0;
 #X connect 1 0 15 0;
@@ -844,13 +843,12 @@
 #X connect 45 1 46 0;
 #X connect 45 2 2 0;
 #X connect 46 0 42 0;
+#X connect 46 0 48 0;
 #X connect 47 0 25 0;
-#X connect 48 0 49 0;
-#X connect 49 0 47 2;
+#X connect 48 0 47 2;
 #X restore 5 21 pd update;
 #X obj 456 106 v \$0-mod;
 #X obj 455 82 t b f;
-#X obj 482 173 s \$0-mod;
 #X connect 10 0 24 0;
 #X connect 12 0 28 0;
 #X connect 13 0 19 0;
@@ -871,5 +869,4 @@
 #X connect 33 0 28 1;
 #X connect 37 0 22 0;
 #X connect 37 1 36 0;
-#X connect 37 1 38 0;
 #X coords 0 -1 1 1 96 109 2 100 100;
