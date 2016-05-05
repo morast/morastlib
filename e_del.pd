@@ -1,4 +1,4 @@
-#N canvas 194 246 806 521 10;
+#N canvas 191 223 806 521 10;
 #X obj 200 109 vd~ \$0-delay;
 #X obj -42 127 *~ 0.7;
 #X obj -9 104 r \$0-feedback;
@@ -12,7 +12,7 @@
 #X obj 381 74 u_dispatch \$0 \$1 feedback;
 #X obj 221 164 r \$0-dry;
 #X obj 264 84 sig~;
-#N canvas 179 279 450 300 quantize 1;
+#N canvas 176 284 450 300 quantize 0;
 #X obj 69 128 /;
 #X obj 69 152 * 4;
 #X floatatom 69 207 5 0 0 0 - - -;

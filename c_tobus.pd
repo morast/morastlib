@@ -1,4 +1,4 @@
-#N canvas 638 198 533 300 10;
+#N canvas 632 208 533 300 10;
 #X obj 154 128 *~;
 #X obj 170 61 *;
 #X obj 170 84 sig~;
@@ -10,13 +10,14 @@
 #X obj 339 -35 inlet;
 #X obj 229 180 throw~ R-\$1;
 #X obj 173 1 hsl 55 12 0 1 0 0 \$0-send \$0-send empty -2 -8 0 10 -262144
--1 -1 3400 1;
+-1 -1 5400 1;
 #X floatatom 267 100 5 0 0 0 - - -;
 #X obj 170 36 r \$0-send;
 #X obj 339 0 u_dispatch \$0 \$1 send;
 #X obj 415 -24 u_load \$0;
 #X obj 153 209 outlet~ L-out;
 #X obj 231 229 outlet~ R-out;
+#X msg 220 131;
 #X connect 0 0 7 0;
 #X connect 0 0 15 0;
 #X connect 1 0 2 0;
