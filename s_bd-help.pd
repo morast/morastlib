@@ -1,0 +1,30 @@
+#N canvas 65 81 657 517 10;
+#X obj 44 147 s_bd;
+#X obj 43 180 dac~ 1 2, f 10;
+#X obj 44 122 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 40 16 Bassdrum Synth;
+#X obj 44 83 metro 500;
+#X obj 44 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X msg 117 107 dist \$1;
+#X floatatom 117 83 5 0 0 0 - - -, f 5;
+#X msg 183 107 hardness \$1;
+#X msg 280 108 sweep \$1;
+#X msg 350 109 length \$1;
+#X floatatom 183 81 5 0 0 0 - - -, f 5;
+#X floatatom 280 79 5 0 0 0 - - -, f 5;
+#X floatatom 350 81 5 0 0 0 - - -, f 5;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 6 0 0 1;
+#X connect 7 0 6 0;
+#X connect 8 0 0 1;
+#X connect 9 0 0 1;
+#X connect 10 0 0 1;
+#X connect 11 0 8 0;
+#X connect 12 0 9 0;
+#X connect 13 0 10 0;

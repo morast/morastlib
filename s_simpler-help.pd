@@ -1,15 +1,14 @@
-#N canvas 1020 260 450 300 10;
-#X obj 180 22 bng 15 250 50 0 empty empty Bang_to_play_the_sample 17
+#N canvas 1017 264 613 421 10;
+#X obj 20 22 bng 15 250 50 0 empty empty Bang_to_play_the_sample 17
 7 0 10 -262144 -1 -1;
-#X floatatom 205 43 5 0 0 1 Transpose - -;
-#X obj 231 66 bng 15 250 50 0 empty empty Load_sample 17 7 0 10 -262144
+#X floatatom 45 43 5 0 0 1 Transpose - -, f 5;
+#X obj 71 66 bng 15 250 50 0 empty empty Load_sample 17 7 0 10 -262144
 -1 -1;
-#X obj 180 107 s_simpler;
-#X obj 180 160 dac~;
-#X text -105 23 Simple Monopghonic Mono Sample Player/Trigger. What
+#X obj 20 107 s_simpler;
+#X obj 20 160 dac~;
+#X text 15 -20 Simple Monopghonic Mono Sample Player/Trigger. What
 else do ya need? As i pull my triggerfinger!;
 #X connect 0 0 3 0;
 #X connect 1 0 3 1;
-#X connect 2 0 3 2;
 #X connect 3 0 4 0;
 #X connect 3 0 4 1;

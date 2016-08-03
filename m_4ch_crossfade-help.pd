@@ -1,0 +1,17 @@
+#N canvas 65 81 450 300 10;
+#X obj 60 107 m_4ch_crossfade;
+#X text 200 107 Crossfade over 4 signal sources;
+#X obj 59 35 osc~ 440;
+#X obj 133 38 osc~ 880;
+#X obj 206 39 osc~ 1760;
+#X obj 287 40 osc~ 3520;
+#X obj 60 141 *~ 0.1;
+#X obj 61 187 dac~;
+#X text 203 127 Value 0-100;
+#X connect 0 0 6 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 2;
+#X connect 5 0 0 3;
+#X connect 6 0 7 0;
+#X connect 6 0 7 1;

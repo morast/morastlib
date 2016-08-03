@@ -1,4 +1,4 @@
-#N canvas 954 21 679 475 10;
+#N canvas 951 81 679 475 10;
 #X obj 246 186 s_loopplayer;
 #X obj 315 153 bng 15 250 50 0 empty empty Read_File 17 7 0 10 -262144
 -1 -1;
@@ -10,7 +10,7 @@
 #X obj 198 136 tgl 15 0 empty empty Play/Stop 17 7 0 10 -262144 -1
 -1 1 1;
 #X text 195 78 Send 1 to retrigger;
-#X text -61 89 Simple Stereo Loop and Sample Player. Reads files directly
+#X text 4 6 Simple Stereo Loop and Sample Player. Reads files directly
 from disk(readsf~);
 #X connect 0 0 2 0;
 #X connect 0 1 2 1;

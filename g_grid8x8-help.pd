@@ -1,0 +1,82 @@
+#N canvas 297 307 1104 669 10;
+#X obj 42 319 g_grid8x8;
+#X obj 578 325 g_grid8x8 multigrid 0;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array multigrid 32 float 3;
+#A 0 0 0 0 0 0 3 0 0 0 0 1 0 0 1 0 0 0 0 4 0 0 0 4 0 0 0 1 0 0 0 1
+0;
+#X coords 0 8 32 -0 200 140 1 0 0;
+#X restore 811 296 graph;
+#X obj 673 325 g_grid8x8 multigrid 1;
+#X text 40 14 Grid Sequencer Style GUI Element to manipulate arrays
+and tables;
+#X text 40 43 Interaction: Click: select note for step.;
+#X text 132 57 Doubleclick: Activate Step;
+#X text 37 77 Args: 1.Name of array to manipulate;
+#X text 79 91 2 Array Segment to use(a segment has always a size of
+16);
+#X text 36 115 Inlet: 1.Message Control;
+#X text 36 134 Control Messages:;
+#X text 37 183 mod: Length of grid 0-8;
+#X text 36 201 update: update grid;
+#X text 36 163 float: Stepindex;
+#X obj 578 205 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 578 241 metro 500;
+#X obj 578 266 f;
+#X obj 608 266 + 1;
+#X obj 637 266 % 16;
+#X obj 578 287 moses 8;
+#X obj 673 304 % 8;
+#X obj 578 453 s note;
+#X obj 667 454 s onset;
+#X obj 578 473 r note;
+#X obj 668 474 r onset;
+#X floatatom 578 498 5 0 0 0 - - -, f 5;
+#X floatatom 668 500 5 0 0 0 - - -, f 5;
+#X obj 42 262 metro 500;
+#X obj 42 236 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 42 285 f;
+#X obj 72 285 + 1;
+#X floatatom 42 440 5 0 0 0 - - -, f 5;
+#X floatatom 131 440 5 0 0 0 - - -, f 5;
+#X obj 101 285 % 8;
+#X text 147 317 This is just a simple example where \; grid8x8 uses
+its iternal array;
+#X text 575 90 You can join multiple grid to get a bigger one.;
+#X text 575 105 You do this by creating an table or array and multiple
+grid.;
+#X msg 173 286 mod \$1;
+#X floatatom 173 263 5 0 0 0 - - -, f 5;
+#X text 574 120 The grid should refer to the same array but use diffrent
+segements in ascending order. First grid segment zero second grid segment
+2 and so forth;
+#X text 574 163 A segment has always the size of 16 so if you have
+2 grids you need an arraysize of at least 32;
+#X connect 0 0 31 0;
+#X connect 0 1 32 0;
+#X connect 1 0 21 0;
+#X connect 1 1 22 0;
+#X connect 3 0 21 0;
+#X connect 3 1 22 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 17 0;
+#X connect 16 0 19 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 1;
+#X connect 19 0 1 0;
+#X connect 19 1 20 0;
+#X connect 20 0 3 0;
+#X connect 23 0 25 0;
+#X connect 24 0 26 0;
+#X connect 27 0 29 0;
+#X connect 28 0 27 0;
+#X connect 29 0 30 0;
+#X connect 29 0 0 0;
+#X connect 30 0 33 0;
+#X connect 33 0 29 1;
+#X connect 37 0 0 0;
+#X connect 38 0 37 0;
+#X connect 38 0 33 1;

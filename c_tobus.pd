@@ -1,19 +1,19 @@
-#N canvas 732 257 533 300 10;
+#N canvas 729 261 533 300 10;
 #X obj 154 128 *~;
 #X obj 170 61 *;
 #X obj 170 84 sig~;
 #X obj 170 106 lop~ 1;
 #X obj 153 -35 inlet~ L-Input;
-#X obj 244 -35 inlet~ R-Input;
+#X obj 247 -15 inlet~ R-Input;
 #X obj 230 133 *~;
 #X obj 153 179 throw~ L-\$1;
-#X obj 339 -35 inlet;
-#X obj 229 180 throw~ R-\$1;
+#X obj 362 -35 inlet;
+#X obj 238 179 throw~ R-\$1;
 #X obj 173 1 hsl 55 12 0 1 0 0 \$0-send \$0-send empty -2 -8 0 10 -262144
--1 -1 5400 1;
+-1 -1 0 1;
 #X obj 170 22 r \$0-send;
-#X obj 339 0 u_dispatch \$0 \$1 send;
-#X obj 415 -24 u_load \$0;
+#X obj 362 0 u_dispatch \$0 \$1 send;
+#X obj 438 -24 u_load \$0;
 #X obj 153 209 outlet~ L-out;
 #X obj 231 229 outlet~ R-out;
 #X obj 170 42 t f f;

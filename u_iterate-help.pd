@@ -1,0 +1,16 @@
+#N canvas 699 143 450 300 10;
+#X obj 51 160 u_iterate 18;
+#X obj 51 202 print;
+#X obj 132 202 print done;
+#X obj 51 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 98 128 6;
+#X text 30 36 Args: Count;
+#X text 29 53 Messages: Bang \; Flot;
+#X text 222 203 Right outlets bang when done;
+#X text 29 8 Creates a row of numbers from 0 to the given Number when
+banged;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;

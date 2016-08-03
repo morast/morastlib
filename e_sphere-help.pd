@@ -1,7 +1,7 @@
-#N canvas 594 274 1315 542 10;
+#N canvas 605 354 1315 542 10;
 #X obj 131 282 dac~;
 #X msg 307 188 dry \$1;
-#X floatatom 317 149 5 0 0 0 - - -;
+#X floatatom 317 149 5 0 0 0 - - -, f 5;
 #X obj 131 242 e_sphere faux;
 #X msg 356 188 pitch \$1;
 #X msg 418 187 morph \$1;
@@ -12,26 +12,25 @@
 #X msg 748 186 feedback \$1;
 #X msg 827 186 highpass \$1;
 #X msg 905 186 vol \$1;
-#X floatatom 360 143 5 0 0 0 - - -;
-#X floatatom 419 142 5 0 0 0 - - -;
-#X floatatom 478 138 5 0 0 0 - - -;
-#X floatatom 550 137 5 0 0 0 - - -;
-#X floatatom 632 126 5 0 0 0 - - -;
-#X floatatom 693 134 5 0 0 0 - - -;
-#X floatatom 749 131 5 0 0 0 - - -;
-#X floatatom 823 136 5 0 0 0 - - -;
-#X floatatom 903 132 5 0 0 0 - - -;
+#X floatatom 360 143 5 0 0 0 - - -, f 5;
+#X floatatom 419 142 5 0 0 0 - - -, f 5;
+#X floatatom 478 138 5 0 0 0 - - -, f 5;
+#X floatatom 550 137 5 0 0 0 - - -, f 5;
+#X floatatom 632 126 5 0 0 0 - - -, f 5;
+#X floatatom 693 134 5 0 0 0 - - -, f 5;
+#X floatatom 749 131 5 0 0 0 - - -, f 5;
+#X floatatom 823 136 5 0 0 0 - - -, f 5;
+#X floatatom 903 132 5 0 0 0 - - -, f 5;
 #X obj 514 -144 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 10900 1;
-#N canvas 651 283 672 519 source 0;
+-1 -1 7700 1;
+#N canvas 648 287 672 519 source 0;
 #X obj 131 48 openpanel;
 #X msg 194 77 start;
 #X msg 235 77 stop;
 #X obj 182 183 spigot;
-#X obj 232 159 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 232 159 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X msg -321 89 C:/Users/Moritz/Documents/Musikmaschine/Samples/Sounddesign & FX/Soundscapes/satanicclouds.wav
-;
+#X msg -321 89 /home/morast/Documents/samples/x-files.wav;
 #X obj 131 153 readsf~ 2;
 #X msg -321 29 set \$1;
 #X obj 131 116 prepend open;
@@ -60,10 +59,10 @@
 -1 -1;
 #X msg 145 145 start;
 #X msg 185 145 stop;
-#X obj 199 168 tgl 15 0 empty empty Loop 17 7 0 10 -262144 -1 -1 1
+#X obj 199 168 tgl 15 0 empty empty Loop 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 355 -124 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
+-1 -1 0 1;
 #X obj 365 34 * 64;
 #X obj 536 112 * 400;
 #X obj 553 25 *;
@@ -75,6 +74,18 @@ varying its speed to create some kind of frequency modulation effect.
 ;
 #X coords 0 -1 1 1 400 90 1 0 0;
 #X restore 11 -231 pd REFEENCE;
+#X text 7 14 noise: 0-1;
+#X text 9 -42 morph: 0-100;
+#X text 9 -54 pitch: 0-127;
+#X text 9 -67 dry: 0-1;
+#X text 8 -27 lpfreq: 0-127;
+#X text 7 -13 intensity:0-999;
+#X text 7 0 ffade: 0-1;
+#X text 7 28 highpass: 0-127;
+#X text 7 39 vol: 0-1;
+#X text 9 -122 Args: Unique Identfier;
+#X text 10 -138 Inputs: sig~ \, Message Control;
+#X text 8 -82 Control Messages:;
 #X connect 1 0 3 2;
 #X connect 2 0 1 0;
 #X connect 3 0 0 0;

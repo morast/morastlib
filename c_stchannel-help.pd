@@ -1,0 +1,42 @@
+#N canvas 403 233 903 333 10;
+#X text 162 45 Stereo Channel Strip;
+#X obj 97 43 c_stchannel input1 \$0;
+#X obj 98 291 dac~ 1 2;
+#X obj 98 -34 osc~ 440;
+#X obj 98 268 *~ 0.2;
+#X obj 150 268 *~ 0.2;
+#X obj 174 194 receive~ input2-out-L;
+#X obj 176 215 receive~ input2-out-R;
+#X obj 546 51 noise~;
+#X obj 545 83 throw~ input2-in-L;
+#X obj 685 81 throw~ input2-in-R;
+#X text 549 14 You can also use throw~ to send a signal to the strip.
+Syntax is <channelname>-in-L or <channelname>-in-R;
+#X text 556 136 The output of the channel is sent to a receive object
+<channelname>-out-L or <channelname>-out-R;
+#X msg 128 20 mute \$1;
+#X text 164 62 Args: 1.Name of Strip 2.Global Identifier \$0 Control
+Messages: Vol:0 - 100 Pan: -50 - 50 Mute:0/1;
+#X obj 128 -3 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 195 26 vol \$1;
+#X msg 260 26 pan \$1;
+#X floatatom 195 6 5 0 100 0 - - -, f 5;
+#X floatatom 260 7 5 -50 50 0 - - -, f 5;
+#X obj 492 50 c_stchannel input2 \$0;
+#X connect 1 0 4 0;
+#X connect 1 1 5 0;
+#X connect 3 0 1 0;
+#X connect 3 0 1 1;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 13 0 1 2;
+#X connect 15 0 13 0;
+#X connect 16 0 1 2;
+#X connect 17 0 1 2;
+#X connect 18 0 16 0;
+#X connect 19 0 17 0;
