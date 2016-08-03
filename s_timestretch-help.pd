@@ -1,13 +1,30 @@
-#N canvas 0 0 699 507 10;
-#X obj 303 230 s_timestretch;
-#X obj 303 282 dac~;
-#X floatatom 353 135 5 0 0 0 - - -;
-#X floatatom 510 136 5 0 0 0 Window_Length_in_ms - -;
-#X msg 259 114 load;
-#X text -7 30 Plays to overlapping chunks of an audio file to create
+#N canvas 261 139 699 507 10;
+#X obj 53 283 s_timestretch;
+#X obj 53 335 dac~;
+#X floatatom 97 157 5 0 0 0 - - -, f 5;
+#X floatatom 306 195 5 0 0 0 Window_Length_in_ms - -, f 5;
+#X msg 53 160 load;
+#X text 10 6 Plays to overlapping chunks of an audio file to create
 smooth timestretching effects;
-#X msg 514 191 \$1 10;
-#X obj 501 225 line;
+#X msg 306 243 \$1 10;
+#X obj 306 265 line;
+#X text 145 157 playback speed 100 == normal speed \, negative values
+reverse;
+#X obj 287 433 soundfiler;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array ext-array 4930 float 2;
+#X coords 0 1 4930 -1 200 140 1;
+#X restore 389 209 graph;
+#X obj 287 374 openpanel;
+#X obj 287 349 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 287 401 read -resize \$1 ext-array;
+#X msg 62 238 load ext-array;
+#X text 10 35 Args: external array;
+#X text 6 52 Input: 1.message: load + buffername;
+#X text 55 66 2.float: PlaybackSpeed: 100 == Normal Speed \, 200 double
+\,;
+#X text 55 82 3.float: window: size;
 #X connect 0 0 1 0;
 #X connect 0 0 1 1;
 #X connect 2 0 0 1;
@@ -15,3 +32,7 @@ smooth timestretching effects;
 #X connect 4 0 0 0;
 #X connect 6 0 7 0;
 #X connect 7 0 0 2;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 13 0 9 0;
+#X connect 14 0 0 0;
