@@ -1,0 +1,89 @@
+#N canvas 391 222 1119 701 10;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array multigrid 32 float 3;
+#A 0 15 12 12 18 12 12 21 12 1 0 0 1 0 0 1 0 22 12 21 12 18 16 12 12
+0 0 0 0 0 0 0 0;
+#X coords 0 24 32 -24 200 140 1 0 0;
+#X restore 811 316 graph;
+#X text 40 43 Interaction: Click: select note for step.;
+#X text 132 57 Doubleclick: Activate Step;
+#X text 37 97 Args: 1.Name of array to manipulate;
+#X text 79 111 2 Array Segment to use(a segment has always a size of
+16);
+#X text 36 140 Inlet: 1.Message Control;
+#X text 36 159 Control Messages:;
+#X text 37 208 mod: Length of grid 0-8;
+#X text 36 226 update: update grid;
+#X text 36 188 float: Stepindex;
+#X obj 578 225 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 578 261 metro 500;
+#X obj 578 286 f;
+#X obj 608 286 + 1;
+#X obj 637 286 % 16;
+#X obj 578 307 moses 8;
+#X obj 673 324 % 8;
+#X obj 566 583 s note;
+#X obj 655 584 s onset;
+#X obj 566 603 r note;
+#X obj 656 604 r onset;
+#X floatatom 566 628 5 0 0 0 - - -, f 5;
+#X floatatom 656 630 5 0 0 0 - - -, f 5;
+#X obj 42 282 metro 500;
+#X obj 42 256 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 42 305 f;
+#X obj 72 305 + 1;
+#X floatatom 42 510 5 0 0 0 - - -, f 5;
+#X floatatom 131 510 5 0 0 0 - - -, f 5;
+#X obj 101 305 % 8;
+#X text 575 110 You can join multiple grid to get a bigger one.;
+#X text 575 125 You do this by creating an table or array and multiple
+grid.;
+#X msg 173 306 mod \$1;
+#X floatatom 173 283 5 0 0 0 - - -, f 5;
+#X text 574 140 The grid should refer to the same array but use diffrent
+segements in ascending order. First grid segment zero second grid segment
+2 and so forth;
+#X text 574 183 A segment has always the size of 16 so if you have
+2 grids you need an arraysize of at least 32;
+#X obj 42 333 g_grid8x12;
+#X text 132 70 Click&Drag: Change octave;
+#X obj 566 377 g_grid8x12 multigrid 0 1;
+#X obj 661 377 g_grid8x12 multigrid 1 1;
+#X msg 522 334 update;
+#X text 145 370 Click and Drag to change the ocatve;
+#X text 40 -4 Grid Sequencer Style GUI Element to manipulate arrays
+and tables \, meant for notes and scales since it has 12 possibilites
+per step \; It has an octave range of 5;
+#X text 79 124 3 Colorscheme 0-6;
+#X text 147 337 This is just a simple example where \; grid8x12 uses
+its iternal array;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 1;
+#X connect 15 0 38 0;
+#X connect 15 1 16 0;
+#X connect 16 0 39 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 23 0 25 0;
+#X connect 24 0 23 0;
+#X connect 25 0 26 0;
+#X connect 25 0 36 0;
+#X connect 26 0 29 0;
+#X connect 29 0 25 1;
+#X connect 32 0 36 0;
+#X connect 33 0 32 0;
+#X connect 33 0 29 1;
+#X connect 36 0 27 0;
+#X connect 36 1 28 0;
+#X connect 38 0 17 0;
+#X connect 38 1 18 0;
+#X connect 39 0 17 0;
+#X connect 39 1 18 0;
+#X connect 40 0 38 0;
+#X connect 40 0 39 0;

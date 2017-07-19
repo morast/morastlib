@@ -1,0 +1,199 @@
+#N canvas 114 84 1245 517 10;
+#X obj 197 252 dac~;
+#X msg 390 143 drywet \$1;
+#X msg 462 142 feedback \$1;
+#X obj 548 -8 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 4300 1;
+#X obj 570 -8 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 4300 1;
+#X obj 590 -8 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 5800 1;
+#X obj 611 -8 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 2900 1;
+#X obj 630 -8 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 4300 1;
+#X obj 650 -9 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 4200 1;
+#X obj 669 -8 vsl 15 128 0 1 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 2000 1;
+#X obj 198 175 e_resonator reso1;
+#X msg 296 143 lpfreq \$1;
+#N canvas 1081 367 450 300 package 0;
+#X obj 88 140 pack f f f f f f f;
+#X obj 88 50 inlet;
+#X obj 88 83 t b f;
+#X obj 128 51 inlet;
+#X obj 128 84 t b f;
+#X obj 168 51 inlet;
+#X obj 168 84 t b f;
+#X obj 208 51 inlet;
+#X obj 208 84 t b f;
+#X obj 248 51 inlet;
+#X obj 248 84 t b f;
+#X obj 288 51 inlet;
+#X obj 288 84 t b f;
+#X obj 50 51 inlet;
+#X obj 88 163 outlet;
+#X connect 0 0 14 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 0 2;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 6 1 0 3;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 8 1 0 4;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 10 1 0 5;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 12 1 0 6;
+#X connect 13 0 0 0;
+#X restore 548 138 pd package;
+#N canvas 1081 367 450 300 package 0;
+#X obj 88 140 pack f f f f f f f;
+#X obj 88 50 inlet;
+#X obj 88 83 t b f;
+#X obj 128 51 inlet;
+#X obj 128 84 t b f;
+#X obj 168 51 inlet;
+#X obj 168 84 t b f;
+#X obj 208 51 inlet;
+#X obj 208 84 t b f;
+#X obj 248 51 inlet;
+#X obj 248 84 t b f;
+#X obj 288 51 inlet;
+#X obj 288 84 t b f;
+#X obj 50 51 inlet;
+#X obj 88 163 outlet;
+#X connect 0 0 14 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 0 2;
+#X connect 5 0 6 0;
+#X connect 6 0 0 0;
+#X connect 6 1 0 3;
+#X connect 7 0 8 0;
+#X connect 8 0 0 0;
+#X connect 8 1 0 4;
+#X connect 9 0 10 0;
+#X connect 10 0 0 0;
+#X connect 10 1 0 5;
+#X connect 11 0 12 0;
+#X connect 12 0 0 0;
+#X connect 12 1 0 6;
+#X connect 13 0 0 0;
+#X restore 804 125 pd package;
+#X obj 804 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 49.1 256;
+#X obj 843 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 34 256;
+#X obj 882 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 48.79 256;
+#X obj 922 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 64.53 256;
+#X obj 961 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 48.74 256;
+#X obj 1000 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 73.64 256;
+#X obj 1039 95 nbx 3 14 -1e+37 1e+37 0 1 empty empty empty 0 -8 0 10
+-262144 -1 -1 55.04 256;
+#X text 545 -30 Volume;
+#X text 801 76 Pitch;
+#X obj 296 125 mtof;
+#X obj 137 75 osc~;
+#X obj 136 35 vline~;
+#X obj 137 55 *~ 900;
+#X msg 136 12 1 0 \, 0 50 0;
+#X obj 462 116 + 0.9;
+#X obj 462 89 * 0.1;
+#X obj 197 136 *~ 0.4;
+#N canvas 605 167 450 300 multiplex 0;
+#X obj 101 116 *~;
+#X obj 57 117 *~;
+#X msg 166 61 1 0;
+#X msg 204 62 0 1;
+#X obj 166 94 unpack;
+#X obj 166 27 sel 0 1;
+#X obj 56 2 inlet~;
+#X obj 102 3 inlet~;
+#X obj 58 178 outlet~;
+#X obj 166 5 inlet;
+#X connect 0 0 8 0;
+#X connect 1 0 8 0;
+#X connect 2 0 4 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 1;
+#X connect 4 1 0 1;
+#X connect 5 0 2 0;
+#X connect 5 1 3 0;
+#X connect 6 0 1 0;
+#X connect 7 0 0 0;
+#X connect 9 0 5 0;
+#X restore 136 99 pd multiplex;
+#X obj 181 36 noise~;
+#X obj 205 72 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 225 13 comment;
+#X text 128 -214 Resonator - resonator effect built from combfilters
+from s_guitare from the rjlib.;
+#N canvas 0 50 1920 1014 reference 0;
+#X text 101 118 Name: e_resonator Class: Effect Summary: Resonator
+effect built from comb filters Argument 0: Unique Scripting Name Inlet
+0: sig~ Inlet 1: lpfreq \, drywet \, feedback vol<list \, 7 \, f> \,
+pitch<list \, 7 \, 0-127> Outlet 0:sig~ Description: 7 Voices Combfilter
+Resonator. Very useful if you are into Basic Channel;
+#X coords 0 -1 1 1 360 220 1 100 100;
+#X restore 131 -187 pd reference;
+#X floatatom 312 53 5 0 0 0 - - -, f 5;
+#X floatatom 396 60 5 0 0 0 - - -, f 5;
+#X floatatom 465 45 5 0 0 0 - - -, f 5;
+#X obj 549 157 prepend vol;
+#X obj 804 157 prepend pitch;
+#X obj 198 200 *~ 0.4;
+#X connect 1 0 10 1;
+#X connect 2 0 10 1;
+#X connect 3 0 12 0;
+#X connect 4 0 12 1;
+#X connect 5 0 12 2;
+#X connect 6 0 12 3;
+#X connect 7 0 12 4;
+#X connect 8 0 12 5;
+#X connect 9 0 12 6;
+#X connect 10 0 42 0;
+#X connect 11 0 10 1;
+#X connect 12 0 40 0;
+#X connect 13 0 41 0;
+#X connect 14 0 13 0;
+#X connect 15 0 13 1;
+#X connect 16 0 13 2;
+#X connect 17 0 13 3;
+#X connect 18 0 13 4;
+#X connect 19 0 13 5;
+#X connect 20 0 13 6;
+#X connect 23 0 11 0;
+#X connect 24 0 31 0;
+#X connect 25 0 26 0;
+#X connect 26 0 24 0;
+#X connect 27 0 25 0;
+#X connect 28 0 2 0;
+#X connect 29 0 28 0;
+#X connect 30 0 10 0;
+#X connect 31 0 30 0;
+#X connect 32 0 31 1;
+#X connect 33 0 31 2;
+#X connect 37 0 23 0;
+#X connect 38 0 1 0;
+#X connect 39 0 29 0;
+#X connect 40 0 10 1;
+#X connect 41 0 10 1;
+#X connect 42 0 0 0;
+#X connect 42 0 0 1;
