@@ -1,17 +1,15 @@
-#N canvas 646 95 609 344 10;
+#N canvas 561 154 609 344 10;
 #X obj 178 188 openpanel;
 #X msg 178 209 set open \$1;
-#X msg 178 232 open /home/morast/Documents/samples/x-files.wav;
+#X msg 178 232 open ../samples/drums/dergeilebeat.wav;
 #X obj 60 276 readsf~ 2;
 #X msg 60 193 1;
 #X msg 123 230 0;
 #X obj 44 31 inlet;
 #X obj 44 117 sel 0;
-#X obj 178 169 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
 #X obj 111 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 44 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+#X obj 44 57 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
 ;
 #X obj 111 72 sel 1;
 #X obj 178 100 inlet;
@@ -20,23 +18,27 @@
 #X obj 111 115 t b b;
 #X obj 139 276 spigot;
 #X obj 93 31 inlet;
+#X obj 178 128 route bang;
+#X obj 245 157 symbol;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
-#X connect 3 0 13 0;
-#X connect 3 1 14 0;
-#X connect 3 2 16 0;
+#X connect 3 0 12 0;
+#X connect 3 1 13 0;
+#X connect 3 2 15 0;
 #X connect 4 0 3 0;
 #X connect 5 0 3 0;
-#X connect 6 0 10 0;
+#X connect 6 0 9 0;
 #X connect 7 0 5 0;
-#X connect 8 0 0 0;
-#X connect 9 0 15 0;
-#X connect 10 0 7 0;
-#X connect 10 0 11 0;
-#X connect 11 0 9 0;
-#X connect 12 0 8 0;
-#X connect 15 0 4 0;
-#X connect 15 1 2 0;
-#X connect 16 0 9 0;
-#X connect 17 0 16 1;
+#X connect 8 0 14 0;
+#X connect 9 0 7 0;
+#X connect 9 0 10 0;
+#X connect 10 0 8 0;
+#X connect 11 0 17 0;
+#X connect 14 0 4 0;
+#X connect 14 1 2 0;
+#X connect 15 0 8 0;
+#X connect 16 0 15 1;
+#X connect 17 0 0 0;
+#X connect 17 1 18 0;
+#X connect 18 0 1 0;

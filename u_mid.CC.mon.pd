@@ -1,0 +1,9 @@
+#N canvas 1 84 450 300 10;
+#X obj 104 64 ctlin;
+#X floatatom 114 121 5 0 0 3 CC - -, f 5;
+#X floatatom 157 121 5 0 0 3 Number - -, f 5;
+#X floatatom 201 121 5 0 0 3 Channel - -, f 5;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
+#X connect 0 2 3 0;
+#X coords 0 -1 1 1 150 50 1 100 100;

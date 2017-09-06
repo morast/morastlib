@@ -1,0 +1,6 @@
+#N canvas 798 282 673 300 10;
+#X obj 263 127 expr 1000/$f1;
+#X obj 263 80 inlet;
+#X obj 263 177 outlet;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;

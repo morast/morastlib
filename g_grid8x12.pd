@@ -741,7 +741,7 @@
 #X obj 134 142 +;
 #X obj 149 111 r \$0-segment;
 #X obj -149 -74 r \$0-update;
-#X obj -426 -19 iterate 8;
+#X obj -426 -19 u_iterate 8;
 #X msg -372 248 color \$1;
 #X obj -372 227 v \$0-color;
 #X obj -261 192 pack f \$0;
@@ -762,7 +762,7 @@
 #X obj -130 245 >= 8;
 #X obj -96 296 v \$0-color;
 #X obj -130 82 t b f;
-#X obj -130 160 iterate 8;
+#X obj -130 160 u_iterate 8;
 #X obj -149 -36 t b b b;
 #X obj -130 60 v \$0-mod;
 #X obj -426 46 clip 0 8;
@@ -1296,7 +1296,7 @@
 #X text 150 -115 1st Init-Routine;
 #X msg 134 97 \; \$1-grid const 0 \;;
 #N canvas 805 396 450 300 init-notes 0;
-#X obj 10 97 iterate 8;
+#X obj 10 97 u_iterate 8;
 #X obj 10 137 t b f;
 #X obj 61 131 s \$0-update;
 #X obj 10 71 inlet;
